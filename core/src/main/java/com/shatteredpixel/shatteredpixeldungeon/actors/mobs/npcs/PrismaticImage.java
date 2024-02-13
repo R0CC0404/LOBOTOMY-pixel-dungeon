@@ -100,8 +100,8 @@ public class PrismaticImage extends NPC {
 			}
 		}
 		
-		if (hero.tier() != armTier){
-			armTier = hero.tier();
+		if (hero.num() != armTier){
+			armTier = hero.num();
 			((PrismaticSprite)sprite).updateArmor( armTier );
 		}
 		
@@ -234,7 +234,7 @@ public class PrismaticImage extends NPC {
 		
 		hero = (Hero)Actor.findById(heroID);
 		if (hero != null) {
-			armTier = hero.tier();
+			armTier = hero.num();
 		}
 		((PrismaticSprite)s).updateArmor( armTier );
 		return s;

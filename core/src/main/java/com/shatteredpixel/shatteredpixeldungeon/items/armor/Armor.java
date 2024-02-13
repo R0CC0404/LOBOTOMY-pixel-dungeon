@@ -123,6 +123,7 @@ public class Armor extends EquipableItem {
 
 	public Armor( int tier ) {
 		this.tier = tier;
+		this.num = -1;
 	}
 
 	

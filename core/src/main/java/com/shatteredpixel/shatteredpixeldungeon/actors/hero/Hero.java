@@ -442,16 +442,6 @@ public class Hero extends Char {
 			return 0;
 		}
 	}
-	public int tier() {
-		Armor armor = belongings.armor();
-		if (armor instanceof ClassArmor){
-			return 6;
-		} else if (armor != null){
-			return armor.tier;
-		} else {
-			return 0;
-		}
-	}
 
 	public boolean shoot( Char enemy, MissileWeapon wep ) {
 		return shoot(enemy, wep, 1f, 0, 1f );

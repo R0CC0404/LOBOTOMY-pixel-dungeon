@@ -98,7 +98,7 @@ public enum Rankings {
 		rec.cause = cause instanceof Class ? (Class)cause : cause.getClass();
 		rec.win		= win;
 		rec.heroClass	= Dungeon.hero.heroClass;
-		rec.armorTier	= Dungeon.hero.tier();
+		rec.armorTier	= Dungeon.hero.num();
 		rec.herolevel	= Dungeon.hero.lvl;
 		if (Statistics.highestAscent == 0){
 			rec.depth = Statistics.deepestFloor;

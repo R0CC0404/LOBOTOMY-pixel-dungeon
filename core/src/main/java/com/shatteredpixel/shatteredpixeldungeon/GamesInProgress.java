@@ -146,7 +146,7 @@ public class GamesInProgress {
 		info.shld = Dungeon.hero.shielding();
 		info.heroClass = Dungeon.hero.heroClass;
 		info.subClass = Dungeon.hero.subClass;
-		info.armorTier = Dungeon.hero.tier();
+		info.armorTier = Dungeon.hero.num();
 		
 		info.goldCollected = Statistics.goldCollected;
 		info.maxDepth = Statistics.deepestFloor;
