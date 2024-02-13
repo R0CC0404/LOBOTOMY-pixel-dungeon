@@ -25,6 +25,7 @@ import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs.Wandmaker;
 import com.shatteredpixel.shatteredpixeldungeon.effects.particles.FlameParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.SparkParticle;
 import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
 import com.shatteredpixel.shatteredpixeldungeon.levels.painters.PrisonPainter;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.Room;
@@ -97,7 +98,7 @@ public class PrisonLevel extends RegularLevel {
 	
 	@Override
 	public String tilesTex() {
-		return Assets.Environment.TILES_PRISON;
+		return Assets.Environment.TILES_YESOD;
 	}
 	
 	@Override
@@ -170,9 +171,9 @@ public class PrisonLevel extends RegularLevel {
 			PointF p = DungeonTilemap.tileCenterToWorld( pos );
 			pos( p.x - 1, p.y + 2, 2, 0 );
 			
-			pour( FlameParticle.FACTORY, 0.15f );
+			pour( SparkParticle.FACTORY, 0.3f );
 			
-			add( new Halo( 12, 0xFFFFCC, 0.4f ).point( p.x, p.y + 1 ) );
+			add( new Halo( 6, 0xFFFFCC, 0.04f ).point( p.x, p.y + 1 ) );
 		}
 		
 		@Override

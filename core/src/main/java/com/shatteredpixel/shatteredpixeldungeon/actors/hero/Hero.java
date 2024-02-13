@@ -432,6 +432,16 @@ public class Hero extends Char {
 		Buff.affect( this, Hunger.class );
 	}
 	
+	public int num() {
+		Armor armor = belongings.armor();
+		if (armor instanceof ClassArmor){
+			return 6;
+		} else if (armor != null){
+			return armor.num;
+		} else {
+			return 0;
+		}
+	}
 	public int tier() {
 		Armor armor = belongings.armor();
 		if (armor instanceof ClassArmor){
@@ -442,8 +452,12 @@ public class Hero extends Char {
 			return 0;
 		}
 	}
-	
+
 	public boolean shoot( Char enemy, MissileWeapon wep ) {
+		return shoot(enemy, wep, 1f, 0, 1f );
+	}
+
+	public boolean shoot( Char enemy, MissileWeapon wep, float dmgMulti, float dmgBonus, float accMulti ) {
 
 		this.enemy = enemy;
 		boolean wasEnemy = enemy.alignment == Alignment.ENEMY
@@ -452,7 +466,7 @@ public class Hero extends Char {
 		//temporarily set the hero's weapon to the missile weapon being used
 		//TODO improve this!
 		belongings.thrownWeapon = wep;
-		boolean hit = attack( enemy );
+		boolean hit = attack( enemy, dmgMulti, dmgBonus, accMulti );
 		Invisibility.dispel();
 		belongings.thrownWeapon = null;
 
@@ -460,9 +474,9 @@ public class Hero extends Char {
 			Buff.affect( this, Combo.class ).hit( enemy );
 		}
 
-		if (hit && heroClass == HeroClass.DUELIST && wasEnemy){
-			Buff.affect( this, Sai.ComboStrikeTracker.class).addHit();
-		}
+//		if (hit && heroClass == HeroClass.DUELIST && wasEnemy){
+//			Buff.affect( this, Sai.ComboStrikeTracker.class).addHit();
+//		}
 
 		return hit;
 	}

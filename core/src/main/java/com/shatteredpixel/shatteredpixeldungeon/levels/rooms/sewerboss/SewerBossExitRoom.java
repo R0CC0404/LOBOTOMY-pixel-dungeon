@@ -81,15 +81,15 @@ public class SewerBossExitRoom extends ExitRoom {
 		
 		{
 			texture = Assets.Environment.SEWER_BOSS;
-			
+
 			tileW = 3;
 			tileH = 3;
 		}
-		
+
 		private static final int[] layout = new int[]{
 				21, -1, 22,
-				23, 23, 23,
-				24, 24, 24
+				25, 23, 25,
+				24, 24, 24,
 		};
 		
 		@Override

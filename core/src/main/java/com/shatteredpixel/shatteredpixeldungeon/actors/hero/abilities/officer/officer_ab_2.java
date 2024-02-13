@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.warrior;
+package com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.officer;
 
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
@@ -42,7 +42,7 @@ import com.watabou.utils.Callback;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
-public class HeroicLeap extends ArmorAbility {
+public class officer_ab_2 extends ArmorAbility {
 
 	{
 		baseChargeUse = 35f;
@@ -106,7 +106,7 @@ public class HeroicLeap extends ArmorAbility {
 							if (mob.pos == hero.pos + i && hero.hasTalent(Talent.IMPACT_WAVE)){
 								Ballistica trajectory = new Ballistica(mob.pos, mob.pos + i, Ballistica.MAGIC_BOLT);
 								int strength = 1+hero.pointsInTalent(Talent.IMPACT_WAVE);
-								WandOfBlastWave.throwChar(mob, trajectory, strength, true, true, HeroicLeap.this);
+								WandOfBlastWave.throwChar(mob, trajectory, strength, true, true, officer_ab_2.this);
 								if (Random.Int(4) < hero.pointsInTalent(Talent.IMPACT_WAVE)){
 									Buff.prolong(mob, Vulnerable.class, 5f);
 								}
@@ -136,11 +136,11 @@ public class HeroicLeap extends ArmorAbility {
 
 	@Override
 	public int icon() {
-		return HeroIcon.HEROIC_LEAP;
+		return HeroIcon.OFFICER_AB2;
 	}
 
 	@Override
 	public Talent[] talents() {
-		return new Talent[]{Talent.BODY_SLAM, Talent.IMPACT_WAVE, Talent.DOUBLE_JUMP, Talent.HEROIC_ENERGY};
+		return new Talent[]{Talent.OFFICER_AB_2_A, Talent.OFFICER_AB_2_B, Talent.OFFICER_AB_2_C};
 	}
 }

@@ -43,7 +43,8 @@ public class Dirk extends MeleeWeapon {
 		return  4*(tier+1) +    //12 base, down from 15
 				lvl*(tier+1);   //scaling unchanged
 	}
-	
+
+
 	@Override
 	public int damageRoll(Char owner) {
 		if (owner instanceof Hero) {

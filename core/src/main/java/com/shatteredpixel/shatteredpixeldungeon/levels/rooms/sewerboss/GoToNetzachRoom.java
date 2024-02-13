@@ -27,14 +27,13 @@ import com.shatteredpixel.shatteredpixeldungeon.levels.Level;
 import com.shatteredpixel.shatteredpixeldungeon.levels.Terrain;
 import com.shatteredpixel.shatteredpixeldungeon.levels.features.LevelTransition;
 import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
-import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.ExitRoom;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.StandardRoom;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.CustomTilemap;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.Tilemap;
 import com.watabou.utils.Point;
 
-public class GoToHodRoom extends StandardRoom {
+public class GoToNetzachRoom extends StandardRoom {
 	
 	@Override
 	public int minWidth() {
@@ -69,8 +68,8 @@ public class GoToHodRoom extends StandardRoom {
 		level.transitions.add(new LevelTransition(level,
 				exitCell,
 				LevelTransition.Type.BRANCH_EXIT,
-				Dungeon.depth,
-				Dungeon.branch+1,
+				Dungeon.depth+1,
+				Dungeon.branch+2,
 				LevelTransition.Type.BRANCH_ENTRANCE));
 		
 		CustomTilemap vis = new SewerExit();
@@ -86,7 +85,7 @@ public class GoToHodRoom extends StandardRoom {
 	public static class SewerExit extends CustomTilemap {
 		
 		{
-			texture = Assets.Environment.GOTOHOD;
+			texture = Assets.Environment.GOTONETZACH;
 			
 			tileW = 3;
 			tileH = 3;
@@ -94,7 +93,7 @@ public class GoToHodRoom extends StandardRoom {
 		
 		private static final int[] layout = new int[]{
 				21, -1, 22,
-				23, 23, 23,
+				25, 23, 25,
 				24, 24, 24
 		};
 		
@@ -117,7 +116,7 @@ public class GoToHodRoom extends StandardRoom {
 	public static class SewerExitOverhang extends CustomTilemap {
 		
 		{
-			texture = Assets.Environment.GOTOHOD;
+			texture = Assets.Environment.GOTONETZACH;
 			
 			tileW = 3;
 			tileH = 2;

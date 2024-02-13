@@ -110,14 +110,21 @@ public class Armor extends EquipableItem {
 	protected BrokenSeal seal;
 	
 	public int tier;
+	public int num;
 	
 	private static final int USES_TO_ID = 10;
 	private float usesLeftToID = USES_TO_ID;
 	private float availableUsesToID = USES_TO_ID/2f;
-	
+
+	public Armor( int tier, int num ) {
+		this.tier = tier;
+		this.num = num;
+	}
+
 	public Armor( int tier ) {
 		this.tier = tier;
 	}
+
 	
 	private static final String USES_LEFT_TO_ID = "uses_left_to_id";
 	private static final String AVAILABLE_USES  = "available_uses";

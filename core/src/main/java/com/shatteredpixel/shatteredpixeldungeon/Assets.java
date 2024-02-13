@@ -36,8 +36,12 @@ public class Assets {
 		public static final String VISUAL_GRID  = "environment/visual_grid.png";
 		public static final String WALL_BLOCKING= "environment/wall_blocking.png";
 
-		public static final String TILES_SEWERS = "environment/tiles_sewers.png";
-		public static final String TILES_PRISON = "environment/tiles_prison.png";
+		public static final String TILES_SEWERS = "environment/tiles_malkuth.png";
+		public static final String TILES_MALKUTH = "environment/tiles_malkuth.png";
+		public static final String TILES_PRISON = "environment/tiles_yesod.png";
+		public static final String TILES_YESOD = "environment/tiles_yesod.png";
+		public static final String TILES_HOD = "environment/tiles_hod.png";
+		public static final String TILES_NETZACH = "environment/tiles_netzach.png";
 		public static final String TILES_CAVES  = "environment/tiles_caves.png";
 		public static final String TILES_CITY   = "environment/tiles_city.png";
 		public static final String TILES_HALLS  = "environment/tiles_halls.png";
@@ -50,6 +54,8 @@ public class Assets {
 
 		public static final String WEAK_FLOOR       = "environment/custom_tiles/weak_floor.png";
 		public static final String SEWER_BOSS       = "environment/custom_tiles/sewer_boss.png";
+		public static final String GOTOHOD      	= "environment/custom_tiles/gotohod.png";
+		public static final String GOTONETZACH      = "environment/custom_tiles/gotonetzach.png";
 		public static final String PRISON_QUEST     = "environment/custom_tiles/prison_quest.png";
 		public static final String PRISON_EXIT      = "environment/custom_tiles/prison_exit.png";
 		public static final String CAVES_QUEST      = "environment/custom_tiles/caves_quest.png";
@@ -230,6 +236,7 @@ public class Assets {
 		public static final String ROGUE    = "splashes/rogue.jpg";
 		public static final String HUNTRESS = "splashes/huntress.jpg";
 		public static final String DUELIST  = "splashes/duelist.jpg";
+		public static final String OFFICER  = "splashes/officer.jpg";
 	}
 
 	public static class Sprites {
@@ -241,6 +248,7 @@ public class Assets {
 		public static final String ROGUE    = "sprites/rogue.png";
 		public static final String HUNTRESS = "sprites/huntress.png";
 		public static final String DUELIST  = "sprites/duelist.png";
+		public static final String OFFICER  = "sprites/char_sprite.png";
 		public static final String AVATARS  = "sprites/avatars.png";
 		public static final String PET      = "sprites/pet.png";
 		public static final String AMULET   = "sprites/amulet.png";
@@ -300,5 +308,8 @@ public class Assets {
 		public static final String NINJA_LOG= "sprites/ninja_log.png";
 		public static final String SPIRIT_HAWK= "sprites/spirit_hawk.png";
 		public static final String RED_SENTRY= "sprites/red_sentry.png";
+		public static final String ARBITER= "sprites/arbiter.png";
+		public static final String BINAH= "sprites/binah.png";
+
 	}
 }

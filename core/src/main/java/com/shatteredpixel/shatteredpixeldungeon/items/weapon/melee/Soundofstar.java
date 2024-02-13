@@ -1,4 +1,4 @@
-package com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.gun.MG;
+package com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee;
 import static com.shatteredpixel.shatteredpixeldungeon.Dungeon.hero;
 
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
@@ -7,36 +7,46 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Invisibility;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroClass;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroSubClass;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
 import com.shatteredpixel.shatteredpixeldungeon.effects.CellEmitter;
 import com.shatteredpixel.shatteredpixeldungeon.effects.MagicMissile;
 import com.shatteredpixel.shatteredpixeldungeon.effects.particles.BlastParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.ElmoParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.EnergyParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.RainbowParticle;
 import com.shatteredpixel.shatteredpixeldungeon.effects.particles.SmokeParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.SparkParticle;
 import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfSharpshooting;
 import com.shatteredpixel.shatteredpixeldungeon.items.wands.WandOfBlastWave;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.gun.Gun;
 import com.shatteredpixel.shatteredpixeldungeon.mechanics.Ballistica;
 import com.shatteredpixel.shatteredpixeldungeon.mechanics.ConeAOE;
-import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.noosa.audio.Sample;
+import com.watabou.noosa.particles.Emitter;
 import com.watabou.utils.Bundle;
+import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
 import java.util.ArrayList;
-public class MG extends Gun {
+
+public class Soundofstar extends Gun {
 
     private boolean riot = false;
     private boolean shootAll = false;
 
     {
-        max_round = 4;
+        max_round = 3;
         round = max_round;
         reload_time = 3f;
         shotPerShoot = 3;
         shootingAccuracy = 0.7f;
+        image = ItemSpriteSheet.EGO_WEB_BLUE_STAR;
+        hitSound = Assets.Sounds.HIT_MAGIC;
+        hitSoundPitch = 0.9f;
+
+        tier = 5;
+        grade = "Aleph";
+
     }
 
     private static final String RIOT = "riot";
@@ -85,10 +95,17 @@ public class MG extends Gun {
     }
 
     @Override
+    public int proc( Char attacker, Char defender, int damage)
+    {
+        damage = defender.corrupt(attacker, this.tier, damage);
+        return super.proc( attacker, defender, damage );
+    }
+
+    @Override
     public int max(int lvl) {
         int damage = super.max(lvl);
         if (isEquipped(hero)) {
-            damage *= 1f;
+                damage += 10*(tier+4) + lvl*(tier+1);
         }
         return damage;
     }
@@ -118,9 +135,7 @@ public class MG extends Gun {
 
     @Override
     public int STRReq(int lvl) {
-        int req = super.STRReq(lvl);
-
-        return req;
+        return STRReq(tier-4, lvl); //20 base strength req, up from 18
     }
 
     @Override
@@ -130,7 +145,9 @@ public class MG extends Gun {
 
     public class MGBullet extends Bullet {
         {
-            image = ItemSpriteSheet.TRIPLE_BULLET;
+            image = ItemSpriteSheet.BLUESTAR_BULLET;
+            hitSound = Assets.Sounds.EVOKE;
+
         }
 
         @Override
@@ -150,7 +167,14 @@ public class MG extends Gun {
                 super.onThrow(cell);
             }
         }
-
+        @Override
+        public Emitter emitter() {
+            Emitter emitter = new Emitter();
+            emitter.pos(5, 5);
+            emitter.fillTarget = false;
+            emitter.pour(SparkParticle.FACTORY, 0.05f);
+            return emitter;
+        }
         @Override
         public void cast(final Hero user, final int dst) {
             if (riot) {
@@ -166,9 +190,14 @@ public class MG extends Gun {
             float ACC = super.accuracyFactor(owner, target);
 
             if (shootAll) {
-                ACC *= 0.5f;
+                ACC *= 1.2f;
             }
             return ACC;
+        }
+
+        @Override
+        public void throwSound() {
+            Sample.INSTANCE.play( Assets.Sounds.EVOKE, 1, Random.Float(0.33f, 0.66f) );
         }
 
         private void riot(int cell) {
@@ -187,8 +216,8 @@ public class MG extends Gun {
 
             ArrayList<Char> affected = new ArrayList<>();
             for (int c : cone.cells){
-                CellEmitter.get(c).burst(SmokeParticle.FACTORY, 2);
-                CellEmitter.center(c).burst(BlastParticle.FACTORY, 2);
+                CellEmitter.get(c).burst(ElmoParticle.FACTORY, 2);
+                CellEmitter.center(c).burst(SparkParticle.FACTORY, 2);
                 Char ch = Actor.findChar(c);
                 if (ch != null && ch.alignment != hero.alignment){
                     affected.add(ch);
@@ -217,7 +246,7 @@ public class MG extends Gun {
             hero.spendAndNext(delayFactor(hero));
             updateQuickslot();
             round --;
-            Sample.INSTANCE.play( Assets.Sounds.HIT_CRUSH, 1, Random.Float(0.33f, 0.66f) );
+            Sample.INSTANCE.play( Assets.Sounds.EVOKE, 1, Random.Float(0.33f, 0.66f) );
         }
     }
 }

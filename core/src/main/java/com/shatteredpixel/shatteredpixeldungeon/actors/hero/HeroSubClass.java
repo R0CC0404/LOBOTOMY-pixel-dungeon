@@ -45,7 +45,10 @@ public enum HeroSubClass {
 	WARDEN(HeroIcon.WARDEN),
 
 	CHAMPION(HeroIcon.CHAMPION),
-	MONK(HeroIcon.MONK);
+	MONK(HeroIcon.MONK),
+
+	OFFICER_A(HeroIcon.OFFICER_A),
+	OFFICER_B(HeroIcon.OFFICER_B);
 
 	int icon;
 

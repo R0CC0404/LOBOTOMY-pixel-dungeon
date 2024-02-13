@@ -23,14 +23,14 @@ package com.shatteredpixel.shatteredpixeldungeon.items.armor;
 
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 
-public class TwilightArmor extends Armor {
+public class JustitiaArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.EGO_ARMOR_TWILIGHT;
+		image = ItemSpriteSheet.EGO_ARMOR_JUSTITIA;
 	}
 
-	public TwilightArmor() {
-		super( 5,3 );
+	public JustitiaArmor() {
+		super( 5,4 );
 	}
 
 }

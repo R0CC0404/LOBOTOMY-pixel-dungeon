@@ -64,7 +64,7 @@ public class InfiniteBullet extends Buff {
 	}
 
 	public void add() {
-		if (maxAddition < 2*Dungeon.hero.pointsInTalent(Talent.LARGE_MAGAZINE_2)) {
+		if (maxAddition < 2) {
 			maxAddition ++;
 			duration ++;
 			duration = Math.min(maxDuration, duration);

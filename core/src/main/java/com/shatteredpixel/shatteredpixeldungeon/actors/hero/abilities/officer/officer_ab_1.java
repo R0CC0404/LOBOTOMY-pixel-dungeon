@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.warrior;
+package com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.officer;
 
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
@@ -42,7 +42,7 @@ import com.watabou.noosa.Image;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Bundle;
 
-public class Endure extends ArmorAbility {
+public class officer_ab_1 extends ArmorAbility {
 
 	{
 		baseChargeUse = 50f;
@@ -176,11 +176,11 @@ public class Endure extends ArmorAbility {
 
 	@Override
 	public int icon() {
-		return HeroIcon.ENDURE;
+		return HeroIcon.OFFICER_AB1;
 	}
 
 	@Override
 	public Talent[] talents() {
-		return new Talent[]{Talent.SUSTAINED_RETRIBUTION, Talent.SHRUG_IT_OFF, Talent.EVEN_THE_ODDS, Talent.HEROIC_ENERGY};
+		return new Talent[]{Talent.OFFICER_AB_1_A, Talent.OFFICER_AB_1_B, Talent.OFFICER_AB_1_C};
 	}
 }

@@ -88,7 +88,7 @@ public class SewerLevel extends RegularLevel {
 	
 	@Override
 	public String tilesTex() {
-		return Assets.Environment.TILES_SEWERS;
+		return Assets.Environment.TILES_MALKUTH;
 	}
 	
 	@Override

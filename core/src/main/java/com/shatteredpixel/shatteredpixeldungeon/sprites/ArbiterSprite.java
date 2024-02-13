@@ -28,26 +28,27 @@ import com.watabou.noosa.TextureFilm;
 import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
 
-public class WarlockSprite extends MobSprite {
-	
-	public WarlockSprite() {
+public class ArbiterSprite extends MobSprite {
+
+	public ArbiterSprite() {
 		super();
 		
-		texture( Assets.Sprites.WARLOCK );
+		texture( Assets.Sprites.ARBITER );
 		
-		TextureFilm frames = new TextureFilm( texture, 12, 15 );
-		
+		TextureFilm frames = new TextureFilm( texture, 16, 16 );
+
 		idle = new Animation( 2, true );
-		idle.frames( frames, 0, 0, 0, 1, 0, 0, 1, 1 );
-		
-		run = new Animation( 15, true );
-		run.frames( frames, 0, 2, 3, 4 );
-		
+		idle.frames( frames, 0, 0, 0, 1, 0, 0, 0, 0, 1 );
+
+		run = new Animation( 8, true );
+		run.frames( frames, 0, 0, 0, 2, 3, 4 );
+
 		attack = new Animation( 12, false );
 		attack.frames( frames, 0, 5, 6 );
-		
-		zap = attack.clone();
-		
+
+		zap = new Animation( 10, false );
+		zap.frames( frames, 5, 6, 7, 8 );
+
 		die = new Animation( 15, false );
 		die.frames( frames, 0, 7, 8, 8, 9, 10 );
 		

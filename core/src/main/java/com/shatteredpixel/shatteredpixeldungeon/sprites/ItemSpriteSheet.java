@@ -884,8 +884,287 @@ public class ItemSpriteSheet {
 			assignIconRect( POTION_DIVINE,      7, 7 );
 		}
 
-		                                                                                //16 free slots
+	}
 
+	private static final int EGO_WEB_A0 =                            xy(1, 34);  //16 slots
+	public static final int EGO_WEB_PARADISE_LOST	= EGO_WEB_A0+0;
+	public static final int EGO_WEB_TWILIGHT		= EGO_WEB_A0+1;
+	public static final int EGO_WEB_NIHIL			= EGO_WEB_A0+2;
+
+	static {
+		assignItemRect( EGO_WEB_PARADISE_LOST,  15, 14 );
+		assignItemRect( EGO_WEB_TWILIGHT, 		16, 16 );
+		assignItemRect( EGO_WEB_NIHIL,   		16, 16 );
+	}
+
+	private static final int EGO_WEB_A =                            xy(1, 35);  //16 slots
+	public static final int EGO_WEB_MIMICRY			= EGO_WEB_A+0;
+	public static final int EGO_WEB_DA_CAPO			= EGO_WEB_A+1;
+	public static final int EGO_WEB_JUSTITIA		= EGO_WEB_A+2;
+	public static final int EGO_WEB_BLUE_STAR		= EGO_WEB_A+3;
+	public static final int EGO_WEB_SMILE			= EGO_WEB_A+4;
+	public static final int EGO_WEB_GOLD_RUSH		= EGO_WEB_A+5;
+	public static final int EGO_WEB_CENSORED		= EGO_WEB_A+6;
+
+	static {
+		assignItemRect( EGO_WEB_MIMICRY	,     	16, 16 );
+		assignItemRect( EGO_WEB_DA_CAPO	,   	14, 16 );
+		assignItemRect( EGO_WEB_JUSTITIA,   	16, 16 );
+		assignItemRect( EGO_WEB_SMILE,  	14, 14 );
+		assignItemRect( EGO_WEB_SMILE	,  	 	16, 16 );
+		assignItemRect( EGO_WEB_GOLD_RUSH,  	16, 15 );
+		assignItemRect( EGO_WEB_CENSORED,  		16, 12 );
+	}
+
+	private static final int EGO_WEB_W =                            xy(1, 36);  //16 slots
+	public static final int EGO_WEB_ECSTASY			= EGO_WEB_W+0;
+	public static final int EGO_WEB_GREEN_STEM		= EGO_WEB_W+1;
+	public static final int EGO_WEB_CRIMSON_SCAR	= EGO_WEB_W+2;
+	public static final int EGO_WEB_MAGIC_BULLET	= EGO_WEB_W+3;
+	public static final int EGO_WEB_FAINT_AROMA		= EGO_WEB_W+4;
+	public static final int EGO_WEB_SOLEMN_LAMENT	= EGO_WEB_W+5;
+	public static final int EGO_WEB_HORNET			= EGO_WEB_W+6;
+	public static final int EGO_WEB_DISCORD			= EGO_WEB_W+7;
+	public static final int EGO_WEB_KNIGHT_SWORD	= EGO_WEB_W+8;
+	public static final int EGO_WEB_PAGE_CLUB		= EGO_WEB_W+9;
+	public static final int EGO_WEB_QUEEN_WAND		= EGO_WEB_W+10;
+	public static final int EGO_WEB_LAMP			= EGO_WEB_W+11;
+	public static final int EGO_WEB_COBALT_SCAR		= EGO_WEB_W+12;
+	public static final int EGO_WEB_HEAVEN			= EGO_WEB_W+13;
+	public static final int EGO_WEB_BLACK_SWAN		= EGO_WEB_W+14;
+	public static final int EGO_WEB_ABYSS_ROUTE		= EGO_WEB_W+15;
+
+
+	static {
+		assignItemRect( EGO_WEB_ECSTASY			,13, 15 );
+		assignItemRect( EGO_WEB_GREEN_STEM		,14, 14 );
+		assignItemRect( EGO_WEB_CRIMSON_SCAR	,15, 14 );
+		assignItemRect( EGO_WEB_MAGIC_BULLET	,14, 16 );
+		assignItemRect( EGO_WEB_FAINT_AROMA		,14, 14 );
+		assignItemRect( EGO_WEB_SOLEMN_LAMENT	,16, 14 );
+		assignItemRect( EGO_WEB_HORNET			,15, 15 );
+		assignItemRect( EGO_WEB_DISCORD			,16, 15 );
+		assignItemRect( EGO_WEB_KNIGHT_SWORD	,12, 15 );
+		assignItemRect( EGO_WEB_PAGE_CLUB		,14, 14 );
+		assignItemRect( EGO_WEB_QUEEN_WAND		,16, 16 );
+		assignItemRect( EGO_WEB_LAMP			,16, 16 );
+		assignItemRect( EGO_WEB_COBALT_SCAR		,12, 12 );
+		assignItemRect( EGO_WEB_HEAVEN			,15, 15 );
+		assignItemRect( EGO_WEB_BLACK_SWAN		,16, 15 );
+		assignItemRect( EGO_WEB_ABYSS_ROUTE		,14, 14 );
+	}
+
+	private static final int EGO_WEB_H =                            xy(1, 37);  //16 slots
+	public static final int EGO_WEB_HARMONY			= EGO_WEB_H+0;
+	public static final int EGO_WEB_FROST_SPLINTER	= EGO_WEB_H+1;
+	public static final int EGO_WEB_LOGGING			= EGO_WEB_H+2;
+	public static final int EGO_WEB_LAETITIA		= EGO_WEB_H+3;
+	public static final int EGO_WEB_RED_SHOES		= EGO_WEB_H+4;
+	public static final int EGO_WEB_OUR_GALAXY		= EGO_WEB_H+5;
+	public static final int EGO_WEB_SYRINX			= EGO_WEB_H+6;
+	public static final int EGO_WEB_PLEASURE		= EGO_WEB_H+7;
+	public static final int EGO_WEB_BEAR_PAWS		= EGO_WEB_H+8;
+	public static final int EGO_WEB_TELEPOLE		= EGO_WEB_H+9;
+	public static final int EGO_WEB_SHREDDER		= EGO_WEB_H+10;
+	public static final int EGO_WEB_FLUID_SAC		= EGO_WEB_H+11;
+	public static final int EGO_WEB_SPICEBUSH_A		= EGO_WEB_H+12;
+	public static final int EGO_WEB_LANTERN			= EGO_WEB_H+13;
+	public static final int EGO_WEB_SPICEBUSH_B		= EGO_WEB_H+14;
+	public static final int EGO_WEB_DAREDEVIL		= EGO_WEB_H+15;
+
+
+	static {
+		assignItemRect( EGO_WEB_HARMONY			,14, 14 );
+		assignItemRect( EGO_WEB_FROST_SPLINTER	,14, 14 );
+		assignItemRect( EGO_WEB_LOGGING			,12, 15 );
+		assignItemRect( EGO_WEB_LAETITIA		,12, 14 );
+		assignItemRect( EGO_WEB_RED_SHOES		,12, 16 );
+		assignItemRect( EGO_WEB_OUR_GALAXY		,15, 15 );
+		assignItemRect( EGO_WEB_SYRINX			,11, 12 );
+		assignItemRect( EGO_WEB_PLEASURE		,12, 12 );
+		assignItemRect( EGO_WEB_BEAR_PAWS		,13, 14 );
+		assignItemRect( EGO_WEB_TELEPOLE		,15, 14 );
+		assignItemRect( EGO_WEB_SHREDDER		,13, 13 );
+		assignItemRect( EGO_WEB_FLUID_SAC		,13, 13 );
+		assignItemRect( EGO_WEB_SPICEBUSH_A		,15, 16 );
+		assignItemRect( EGO_WEB_LANTERN			,13, 15 );
+		assignItemRect( EGO_WEB_SPICEBUSH_B		,15, 15 );
+		assignItemRect( EGO_WEB_DAREDEVIL		,16, 14 );
+	}
+
+	private static final int EGO_WEB_T =                            xy(1, 38);  //16 slots
+	public static final int EGO_WEB_RED_EYES		= EGO_WEB_T+0;
+	public static final int EGO_WEB_DUMMY_RABBIT	= EGO_WEB_T+1;
+	public static final int EGO_WEB_REGRET			= EGO_WEB_T+2;
+	public static final int EGO_WEB_CHERRY_BLOSSOMS	= EGO_WEB_T+3;
+	public static final int EGO_WEB_IMPENDING_DAY	= EGO_WEB_T+4;
+	public static final int EGO_WEB_4TH_FLAME		= EGO_WEB_T+5;
+	public static final int EGO_WEB_FRAGMENTS		= EGO_WEB_T+6;
+	public static final int EGO_WEB_BEAK			= EGO_WEB_T+7;
+	public static final int EGO_WEB_WRIST_CUTTER	= EGO_WEB_T+8;
+	public static final int EGO_WEB_ROSEATE_DESIRE	= EGO_WEB_T+9;
+	public static final int EGO_WEB_SCREWLOOSE		= EGO_WEB_T+10;
+
+
+	static {
+		assignItemRect( EGO_WEB_RED_EYES		,15, 15 );
+		assignItemRect( EGO_WEB_DUMMY_RABBIT	,12, 12 );
+		assignItemRect( EGO_WEB_REGRET			,15, 15 );
+		assignItemRect( EGO_WEB_CHERRY_BLOSSOMS	,14, 14 );
+		assignItemRect( EGO_WEB_IMPENDING_DAY	,15, 15 );
+		assignItemRect( EGO_WEB_4TH_FLAME		,14, 14 );
+		assignItemRect( EGO_WEB_FRAGMENTS		,15, 15 );
+		assignItemRect( EGO_WEB_BEAK			,13, 13 );
+		assignItemRect( EGO_WEB_WRIST_CUTTER	,15, 15 );
+		assignItemRect( EGO_WEB_ROSEATE_DESIRE	,10, 11 );
+		assignItemRect( EGO_WEB_SCREWLOOSE		,14, 14 );
+	}
+
+	private static final int EGO_WEB_Z =                            xy(1, 39);  //16 slots
+	public static final int EGO_WEB_BATONS			= EGO_WEB_Z+0;
+	public static final int EGO_WEB_PENITENCE		= EGO_WEB_Z+1;
+
+
+	static {
+		assignItemRect( EGO_WEB_BATONS			,15, 15 );
+		assignItemRect( EGO_WEB_PENITENCE		,12, 12 );
+	}
+
+	private static final int EGO_ARMOR_A =                            xy(1, 41);  //16 slots
+	public static final int EGO_ARMOR_MIMICRY		= EGO_ARMOR_A+0;
+	public static final int EGO_ARMOR_DA_CAPO		= EGO_ARMOR_A+1;
+	public static final int EGO_ARMOR_TWILIGHT		= EGO_ARMOR_A+2;
+	public static final int EGO_ARMOR_JUSTITIA		= EGO_ARMOR_A+3;
+	public static final int EGO_ARMOR_BLUE_STAR		= EGO_ARMOR_A+4;
+	public static final int EGO_ARMOR_SMILE			= EGO_ARMOR_A+5;
+	public static final int EGO_ARMOR_PARADISE_LOST	= EGO_ARMOR_A+6;
+	public static final int EGO_ARMOR_GOLD_RUSH		= EGO_ARMOR_A+7;
+
+	static {
+		assignItemRect( EGO_ARMOR_MIMICRY		, 12, 11 );
+		assignItemRect( EGO_ARMOR_DA_CAPO		, 10, 11 );
+		assignItemRect( EGO_ARMOR_TWILIGHT		, 14, 11 );
+		assignItemRect( EGO_ARMOR_JUSTITIA		, 12, 11 );
+		assignItemRect( EGO_ARMOR_BLUE_STAR		, 10, 11 );
+		assignItemRect( EGO_ARMOR_SMILE			, 10, 11 );
+		assignItemRect( EGO_ARMOR_PARADISE_LOST	, 10, 11 );
+		assignItemRect( EGO_ARMOR_GOLD_RUSH		, 10, 11 );
+	}
+	private static final int EGO_ARMOR_W =                            xy(1, 42);  //16 slots
+	public static final int EGO_ARMOR_ECSTASY		= EGO_ARMOR_W+0;
+	public static final int EGO_ARMOR_GREEN_STEM	= EGO_ARMOR_W+1;
+	public static final int EGO_ARMOR_CRIMSON_SCAR	= EGO_ARMOR_W+2;
+	public static final int EGO_ARMOR_FAINT_AROMA	= EGO_ARMOR_W+3;
+	public static final int EGO_ARMOR_HORNET		= EGO_ARMOR_W+4;
+	public static final int EGO_ARMOR_DISCORD		= EGO_ARMOR_W+5;
+	public static final int EGO_ARMOR_KNIGHT_SWORD	= EGO_ARMOR_W+6;
+	public static final int EGO_ARMOR_QUEEN_WAND	= EGO_ARMOR_W+7;
+	public static final int EGO_ARMOR_PAGE_CLUB		= EGO_ARMOR_W+8;
+	public static final int EGO_ARMOR_COBALT_SCAR	= EGO_ARMOR_W+9;
+	public static final int EGO_ARMOR_LAMP			= EGO_ARMOR_W+10;
+	public static final int EGO_ARMOR_HEAVEN		= EGO_ARMOR_W+11;
+	public static final int EGO_ARMOR_BLACK_SWAN	= EGO_ARMOR_W+12;
+	public static final int EGO_ARMOR_ABYSS_ROUTE	= EGO_ARMOR_W+13;
+
+
+	static {
+		assignItemRect( EGO_ARMOR_ECSTASY		,10, 11 );
+		assignItemRect( EGO_ARMOR_GREEN_STEM	,12, 12 );
+		assignItemRect( EGO_ARMOR_CRIMSON_SCAR	,10, 11 );
+		assignItemRect( EGO_ARMOR_FAINT_AROMA	,10, 11 );
+		assignItemRect( EGO_ARMOR_HORNET		,10, 11 );
+		assignItemRect( EGO_ARMOR_DISCORD		,10, 11 );
+		assignItemRect( EGO_ARMOR_KNIGHT_SWORD	,10, 11 );
+		assignItemRect( EGO_ARMOR_QUEEN_WAND	,14, 11 );
+		assignItemRect( EGO_ARMOR_PAGE_CLUB		,10, 11 );
+		assignItemRect( EGO_ARMOR_COBALT_SCAR	,10, 11 );
+		assignItemRect( EGO_ARMOR_LAMP			,10, 11 );
+		assignItemRect( EGO_ARMOR_HEAVEN		,12, 11 );
+		assignItemRect( EGO_ARMOR_BLACK_SWAN	,10, 11 );
+		assignItemRect( EGO_ARMOR_ABYSS_ROUTE	,12, 11 );
+	}
+
+	private static final int EGO_ARMOR_H =                            xy(1, 43);  //16 slots
+	public static final int EGO_ARMOR_FROST_SPLINTER= EGO_ARMOR_H+0;
+	public static final int EGO_ARMOR_LOGGING		= EGO_ARMOR_H+1;
+	public static final int EGO_ARMOR_LAETITIA		= EGO_ARMOR_H+2;
+	public static final int EGO_ARMOR_MAGIC_BULLET	= EGO_ARMOR_H+3;
+	public static final int EGO_ARMOR_RED_SHOES		= EGO_ARMOR_H+4;
+	public static final int EGO_ARMOR_OUR_GALAXY	= EGO_ARMOR_H+5;
+	public static final int EGO_ARMOR_SYRINX		= EGO_ARMOR_H+6;
+	public static final int EGO_ARMOR_SOLEMN_LAMENT	= EGO_ARMOR_H+7;
+	public static final int EGO_ARMOR_PLEASURE		= EGO_ARMOR_H+8;
+	public static final int EGO_ARMOR_BEAR_PAWS		= EGO_ARMOR_H+9;
+	public static final int EGO_ARMOR_SHREDDER		= EGO_ARMOR_H+10;
+	public static final int EGO_ARMOR_FLUID_SAC		= EGO_ARMOR_H+11;
+	public static final int EGO_ARMOR_TELEPOLE		= EGO_ARMOR_H+12;
+
+
+	static {
+		assignItemRect( EGO_ARMOR_FROST_SPLINTER,10, 11 );
+		assignItemRect( EGO_ARMOR_LOGGING		,13, 12 );
+		assignItemRect( EGO_ARMOR_LAETITIA		,10, 11 );
+		assignItemRect( EGO_ARMOR_MAGIC_BULLET	,10, 11 );
+		assignItemRect( EGO_ARMOR_RED_SHOES		,10, 11 );
+		assignItemRect( EGO_ARMOR_OUR_GALAXY	,10, 11 );
+		assignItemRect( EGO_ARMOR_SYRINX		,10, 11 );
+		assignItemRect( EGO_ARMOR_SOLEMN_LAMENT	,10, 11 );
+		assignItemRect( EGO_ARMOR_PLEASURE		,10, 11 );
+		assignItemRect( EGO_ARMOR_BEAR_PAWS		,12, 11 );
+		assignItemRect( EGO_ARMOR_SHREDDER		,10, 11 );
+		assignItemRect( EGO_ARMOR_FLUID_SAC		,10, 11 );
+		assignItemRect( EGO_ARMOR_TELEPOLE		,12, 12 );
+
+	}
+
+	private static final int EGO_ARMOR_T =                            xy(1, 44);  //16 slots
+	public static final int EGO_ARMOR_RED_EYES			= EGO_ARMOR_T+0;
+	public static final int EGO_ARMOR_DUMMY_RABBIT		= EGO_ARMOR_T+1;
+	public static final int EGO_ARMOR_REGRET			= EGO_ARMOR_T+2;
+	public static final int EGO_ARMOR_CHERRY_BLOSSOMS	= EGO_ARMOR_T+3;
+	public static final int EGO_ARMOR_DAREDEVIL			= EGO_ARMOR_T+4;
+	public static final int EGO_ARMOR_4TH_FLAME			= EGO_ARMOR_T+5;
+	public static final int EGO_ARMOR_FRAGMENTS			= EGO_ARMOR_T+6;
+	public static final int EGO_ARMOR_BEAK				= EGO_ARMOR_T+7;
+
+
+	static {
+		assignItemRect( EGO_ARMOR_RED_EYES			,10, 11 );
+		assignItemRect( EGO_ARMOR_DUMMY_RABBIT		,10, 11 );
+		assignItemRect( EGO_ARMOR_REGRET			,10, 11 );
+		assignItemRect( EGO_ARMOR_CHERRY_BLOSSOMS	,10, 11 );
+		assignItemRect( EGO_ARMOR_DAREDEVIL			,11, 11 );
+		assignItemRect( EGO_ARMOR_4TH_FLAME			,10, 11 );
+		assignItemRect( EGO_ARMOR_FRAGMENTS			,10, 11 );
+		assignItemRect( EGO_ARMOR_BEAK				,10, 11 );
+	}
+
+	private static final int EGO_ARMOR_Z =                            xy(1, 45);  //16 slots
+	public static final int EGO_ARMOR_BATONS		= EGO_ARMOR_Z+0;
+	public static final int EGO_ARMOR_PENITENCE		= EGO_ARMOR_Z+1;
+
+
+	static {
+		assignItemRect( EGO_ARMOR_BATONS			,10, 11 );
+		assignItemRect( EGO_ARMOR_PENITENCE		,10, 11 );
+	}
+
+	private static final int BULLET  =                                   xy(1, 47);  //16 slots
+	public static final int SINGLE_BULLET  = BULLET+0;
+	public static final int TRIPLE_BULLET  = BULLET+1;
+	public static final int SNIPER_BULLET  = BULLET+2;
+	public static final int GRENADE_BULLET = BULLET+3;
+	public static final int ROCKET_BULLET  = BULLET+4;
+	public static final int NOTHING_BULLET = BULLET+5;
+	public static final int BLUESTAR_BULLET = BULLET+6;
+	static{
+		assignItemRect(SINGLE_BULLET,  8, 8);
+		assignItemRect(TRIPLE_BULLET,  8, 8);
+		assignItemRect(SNIPER_BULLET,  8, 8);
+		assignItemRect(GRENADE_BULLET,  8, 8);
+		assignItemRect(ROCKET_BULLET,  8, 8);
+		assignItemRect(NOTHING_BULLET,  1, 1);
+		assignItemRect(BLUESTAR_BULLET,  5, 5);
 	}
 
 }

@@ -55,8 +55,8 @@ public class MirrorSprite extends MobSprite {
 		updateArmor( ((MirrorImage)ch).armTier );
 	}
 	
-	public void updateArmor( int tier ) {
-		TextureFilm film = new TextureFilm( HeroSprite.tiers(), tier, FRAME_WIDTH, FRAME_HEIGHT );
+	public void updateArmor( int num ) {
+		TextureFilm film = new TextureFilm( HeroSprite.nums(), num, FRAME_WIDTH, FRAME_HEIGHT );
 		
 		idle = new Animation( 1, true );
 		idle.frames( film, 0, 0, 0, 1, 0, 0, 1, 1 );

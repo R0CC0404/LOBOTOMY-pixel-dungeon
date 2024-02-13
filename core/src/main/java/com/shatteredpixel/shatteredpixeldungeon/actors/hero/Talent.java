@@ -166,6 +166,22 @@ public enum Talent {
 	//Duelist A3 T4
 	FEIGNED_RETREAT(151, 4), EXPOSE_WEAKNESS(152, 4), COUNTER_ABILITY(153, 4),
 
+	//Officer T1
+	OFFICER_T1_A(160), OFFICER_T1_B(161), OFFICER_T1_C(162), OFFICER_T1_D(163),
+	//Officer T2
+	OFFICER_T2_A(164), OFFICER_T2_B(165), OFFICER_T2_C(166), OFFICER_T2_D(167),OFFICER_T2_E(168),
+	//Officer T3
+	OFFICER_T3_A(169,3), OFFICER_T3_B(170,3),
+	//Officer_A T3
+	OFFICER_A_T3_A(171,3), OFFICER_A_T3_B(172,3), OFFICER_A_T3_C(173,3),
+	//Officer_B T3
+	OFFICER_B_T3_A(174,3), OFFICER_B_T3_B(175,3), OFFICER_B_T3_C(176,3),
+	//Officer_AB_1 T4
+	OFFICER_AB_1_A(177,4), OFFICER_AB_1_B(178,4), OFFICER_AB_1_C(179,4),
+	//Officer_AB_2 T4
+	OFFICER_AB_2_A(180,4), OFFICER_AB_2_B(181,4), OFFICER_AB_2_C(182,4),
+	//Officer_AB_3 T4
+	OFFICER_AB_3_A(183,4), OFFICER_AB_3_B(184,4), OFFICER_AB_3_C(185,4),
 	//universal T4
 	HEROIC_ENERGY(26, 4), //See icon() and title() for special logic for this one
 	//Ratmogrify T4
@@ -363,6 +379,8 @@ public enum Talent {
 					return 122;
 				case DUELIST:
 					return 154;
+				case OFFICER:
+					return 186;
 			}
 		} else {
 			return icon;
@@ -771,6 +789,9 @@ public enum Talent {
 			case DUELIST:
 				Collections.addAll(tierTalents, STRENGTHENING_MEAL, ADVENTURERS_INTUITION, PATIENT_STRIKE, AGGRESSIVE_BARRIER);
 				break;
+			case OFFICER:
+				Collections.addAll(tierTalents, OFFICER_T1_A, OFFICER_T1_B, OFFICER_T1_C, OFFICER_T1_D);
+				break;
 		}
 		for (Talent talent : tierTalents){
 			if (replacements.containsKey(talent)){
@@ -797,6 +818,9 @@ public enum Talent {
 			case DUELIST:
 				Collections.addAll(tierTalents, FOCUSED_MEAL, RESTORED_AGILITY, WEAPON_RECHARGING, LETHAL_HASTE, SWIFT_EQUIP);
 				break;
+			case OFFICER:
+				Collections.addAll(tierTalents, OFFICER_T2_A, OFFICER_T2_B, OFFICER_T2_C, OFFICER_T2_D, OFFICER_T2_E);
+				break;
 		}
 		for (Talent talent : tierTalents){
 			if (replacements.containsKey(talent)){
@@ -822,6 +846,9 @@ public enum Talent {
 				break;
 			case DUELIST:
 				Collections.addAll(tierTalents, PRECISE_ASSAULT, DEADLY_FOLLOWUP);
+				break;
+			case OFFICER:
+				Collections.addAll(tierTalents, OFFICER_T3_A, OFFICER_T3_B);
 				break;
 		}
 		for (Talent talent : tierTalents){
@@ -880,6 +907,12 @@ public enum Talent {
 				break;
 			case MONK:
 				Collections.addAll(tierTalents, UNENCUMBERED_SPIRIT, MONASTIC_VIGOR, COMBINED_ENERGY);
+				break;
+			case OFFICER_A:
+				Collections.addAll(tierTalents, OFFICER_A_T3_A, OFFICER_A_T3_B, OFFICER_A_T3_C);
+				break;
+			case OFFICER_B:
+				Collections.addAll(tierTalents, OFFICER_B_T3_A, OFFICER_B_T3_B, OFFICER_B_T3_C);
 				break;
 		}
 		for (Talent talent : tierTalents){

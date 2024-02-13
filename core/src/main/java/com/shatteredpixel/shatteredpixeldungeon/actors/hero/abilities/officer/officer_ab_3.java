@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>
  */
 
-package com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.warrior;
+package com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.officer;
 
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Actor;
@@ -47,7 +47,7 @@ import com.watabou.noosa.audio.Sample;
 import com.watabou.utils.Callback;
 import com.watabou.utils.Random;
 
-public class Shockwave extends ArmorAbility {
+public class officer_ab_3 extends ArmorAbility {
 
 	{
 		baseChargeUse = 35f;
@@ -153,11 +153,11 @@ public class Shockwave extends ArmorAbility {
 
 	@Override
 	public int icon() {
-		return HeroIcon.SHOCKWAVE;
+		return HeroIcon.OFFICER_AB3;
 	}
 
 	@Override
 	public Talent[] talents() {
-		return new Talent[]{Talent.EXPANDING_WAVE, Talent.STRIKING_WAVE, Talent.SHOCK_FORCE, Talent.HEROIC_ENERGY};
+		return new Talent[]{Talent.OFFICER_AB_3_A, Talent.OFFICER_AB_3_B, Talent.OFFICER_AB_3_C};
 	}
 }

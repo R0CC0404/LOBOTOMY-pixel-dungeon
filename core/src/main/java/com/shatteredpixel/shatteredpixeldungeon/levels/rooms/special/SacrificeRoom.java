@@ -35,7 +35,7 @@ import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
 import com.watabou.utils.Point;
 import com.watabou.utils.Random;
 
-public class SacrificeRoom extends SpecialRoom {
+public class  SacrificeRoom extends SpecialRoom {
 
 	@Override
 	public int minWidth() { return 7; }

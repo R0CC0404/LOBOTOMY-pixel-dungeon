@@ -169,6 +169,7 @@ public class HeroSelectScene extends PixelScene {
 		add(infoButton);
 
 		for (HeroClass cl : HeroClass.values()){
+			if(cl!=HeroClass.OFFICER)continue;
 			HeroBtn button = new HeroBtn(cl);
 			add(button);
 			heroBtns.add(button);
@@ -513,7 +514,7 @@ public class HeroSelectScene extends PixelScene {
 
 			this.cl = cl;
 
-			icon(new Image(cl.spritesheet(), 0, 90, 12, 15));
+			icon(new Image(cl.spritesheet(), 0, 0, 12, 15));
 
 		}
 

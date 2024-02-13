@@ -35,9 +35,12 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
 import com.shatteredpixel.shatteredpixeldungeon.effects.Beam;
 import com.shatteredpixel.shatteredpixeldungeon.effects.CellEmitter;
 import com.shatteredpixel.shatteredpixeldungeon.effects.Lightning;
+import com.shatteredpixel.shatteredpixeldungeon.effects.MagicMissile;
 import com.shatteredpixel.shatteredpixeldungeon.effects.particles.BlastParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.ElmoParticle;
 import com.shatteredpixel.shatteredpixeldungeon.effects.particles.ShadowParticle;
 import com.shatteredpixel.shatteredpixeldungeon.effects.particles.SmokeParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.SparkParticle;
 import com.shatteredpixel.shatteredpixeldungeon.effects.particles.YellowParticle;
 
 import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfSharpshooting;
@@ -58,6 +61,7 @@ import com.shatteredpixel.shatteredpixeldungeon.utils.GLog;
 import com.watabou.noosa.audio.Sample;
 
 import com.watabou.utils.Bundle;
+import com.watabou.utils.Callback;
 import com.watabou.utils.PathFinder;
 import com.watabou.utils.Random;
 
@@ -282,7 +286,6 @@ public class Gun extends MeleeWeapon {
         }
     }
 
-
     @Override
     public String info() {
         String info = super.info();
@@ -299,6 +302,7 @@ public class Gun extends MeleeWeapon {
 
         return info;
     }
+
 
     @Override
     public String status() { //아이템 칸 오른쪽 위에 나타내는 글자
@@ -390,15 +394,15 @@ public class Gun extends MeleeWeapon {
                         GLog.n(Messages.get(this, "ondeath"));
                     }
                 }
-                CellEmitter.get(cell).burst(SmokeParticle.FACTORY, 2);
-                CellEmitter.center(cell).burst(BlastParticle.FACTORY, 2);
+                CellEmitter.get(cell).burst(ElmoParticle.FACTORY, 2);
+                CellEmitter.center(cell).burst(SparkParticle.FACTORY, 2);
                 ArrayList<Char> affected = new ArrayList<>();
                 for (int n : PathFinder.NEIGHBOURS9) {
                     int c = cell + n;
                     if (c >= 0 && c < Dungeon.level.length()) {
                         if (Dungeon.level.heroFOV[c]) {
-                            CellEmitter.get(c).burst(SmokeParticle.FACTORY, 4);
-                            CellEmitter.center(cell).burst(BlastParticle.FACTORY, 4);
+                            CellEmitter.get(c).burst(ElmoParticle.FACTORY, 4);
+                            CellEmitter.center(cell).burst(SparkParticle.FACTORY, 4);
                         }
                         if (Dungeon.level.flamable[c]) {
                             Dungeon.level.destroy(c);
@@ -416,12 +420,12 @@ public class Gun extends MeleeWeapon {
                 for (int i = 0; i < shotPerShoot(); i++) { //데미지 입히는 것과 발사 시 주변에서 나는 연기를 shotPerShoot만큼 반복
                     if (enemy == null || enemy == curUser) {
                         parent = null;
-                        CellEmitter.get(cell).burst(SmokeParticle.FACTORY, 2);
-                        CellEmitter.center(cell).burst(BlastParticle.FACTORY, 2);
+                        CellEmitter.get(cell).burst(ElmoParticle.FACTORY, 2);
+                        CellEmitter.center(cell).burst(SparkParticle.FACTORY, 2);
                     } else {
                         if (!curUser.shoot( enemy, this )) {
-                            CellEmitter.get(cell).burst(SmokeParticle.FACTORY, 2);
-                            CellEmitter.center(cell).burst(BlastParticle.FACTORY, 2);
+                            CellEmitter.get(cell).burst(ElmoParticle.FACTORY, 2);
+                            CellEmitter.center(cell).burst(SparkParticle.FACTORY, 2);
                         }
                     }
                 }

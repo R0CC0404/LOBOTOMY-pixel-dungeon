@@ -56,9 +56,11 @@ import com.shatteredpixel.shatteredpixeldungeon.levels.CityLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.DeadEndLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.HallsBossLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.HallsLevel;
+import com.shatteredpixel.shatteredpixeldungeon.levels.HodLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.LastLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.Level;
 import com.shatteredpixel.shatteredpixeldungeon.levels.MiningLevel;
+import com.shatteredpixel.shatteredpixeldungeon.levels.NetzachLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.PrisonBossLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.PrisonLevel;
 import com.shatteredpixel.shatteredpixeldungeon.levels.RegularLevel;
@@ -341,6 +343,12 @@ public class Dungeon {
 			}
 		} else if (branch == 1) {
 			switch (depth) {
+				case 6:
+				case 7:
+				case 8:
+				case 9:
+					level = new HodLevel();
+					break;
 				case 11:
 				case 12:
 				case 13:
@@ -350,7 +358,18 @@ public class Dungeon {
 				default:
 					level = new DeadEndLevel();
 			}
-		} else {
+		}else if (branch == 2) {
+			switch (depth) {
+				case 6:
+				case 7:
+				case 8:
+				case 9:
+					level = new NetzachLevel();
+					break;
+				default:
+					level = new DeadEndLevel();
+			}
+		}else {
 			level = new DeadEndLevel();
 		}
 

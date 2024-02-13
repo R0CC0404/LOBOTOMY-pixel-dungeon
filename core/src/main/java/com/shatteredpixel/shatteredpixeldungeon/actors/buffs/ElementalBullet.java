@@ -10,15 +10,14 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.elementals.IceBulle
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.elementals.IncendiaryBullet;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
-import com.shatteredpixel.shatteredpixeldungeon.items.active.Bicycle;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.shatteredpixel.shatteredpixeldungeon.ui.ActionIndicator;
 import com.shatteredpixel.shatteredpixeldungeon.ui.HeroIcon;
-import com.shatteredpixel.shatteredpixeldungeon.windows.WndElementalBullet;
-import com.shatteredpixel.shatteredpixeldungeon.windows.WndProfessionalRide;
+
+
 import com.watabou.utils.Bundle;
-public class ElementalBullet extends Buff implements ActionIndicator.Action {
+public abstract class ElementalBullet extends Buff implements ActionIndicator.Action {
 
     float duration = 0;
 
@@ -77,44 +76,12 @@ public class ElementalBullet extends Buff implements ActionIndicator.Action {
         }
 
         public String desc(){
-            return Messages.get(this, name() + ".desc", hero.pointsInTalent(Talent.ELEMENTAL_BULLET_1));
+            return Messages.get(this, name() + ".desc");
         }
 
     }
 
-    public boolean canUseMove(ElementalReload move){
-        return true;
-    }
 
-    public void useMove(ElementalReload move){
-        switch (move) {
-            case AP_BULLET:
-                hero.yellP(Messages.get(Hero.class, hero.heroClass.name() + "_ap_bullet")); //"철갑탄 장전."
-                Buff.affect(hero, APBullet.class);
-                break;
-            case INCENDIARY_BULLET:
-                hero.yellP(Messages.get(Hero.class, hero.heroClass.name() + "_incendiary_bullet")); //"소이탄 장전."
-                Buff.affect(hero, IncendiaryBullet.class);
-                break;
-            case EXPLOSIVE_BULLET:
-                hero.yellP(Messages.get(Hero.class, hero.heroClass.name() + "_explosive_bullet"));  //"폭발탄 장전."
-                Buff.affect(hero, ExplosiveBullet.class);
-                break;
-            case ICE_BULLET:
-                hero.yellP(Messages.get(Hero.class, hero.heroClass.name() + "_ice_bullet"));    //"빙결탄 장전."
-                Buff.affect(hero, IceBullet.class);
-                break;
-            case ELECTRIC_BULLET:
-                hero.yellP(Messages.get(Hero.class, hero.heroClass.name() + "_electric_bullet"));   //"전격탄 장전."
-                Buff.affect(hero, ElectricBullet.class);
-                break;
-        }
-        hero.sprite.operate(hero.pos);
-        if (hero.pointsInTalent(Talent.ELEMENTAL_BULLET_2) < 3) {
-            hero.spendAndNext(Actor.TICK);
-        }
-        detach();
-    }
 
 
     //액션인디케이터 내용
@@ -123,18 +90,12 @@ public class ElementalBullet extends Buff implements ActionIndicator.Action {
         return Messages.get(this, "action_name");
     }
 
-    @Override
-    public int actionIcon() {
-        return HeroIcon.ELEMENTAL_BULLET;
-    }
+
 
     @Override
     public int indicatorColor() {
         return 0xC7C4C9;
     }
 
-    @Override
-    public void doAction() {
-        GameScene.show(new WndElementalBullet(this));
-    }
+
 }

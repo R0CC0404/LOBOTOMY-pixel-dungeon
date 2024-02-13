@@ -37,6 +37,9 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.huntress.S
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.mage.ElementalBlast;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.mage.WarpBeacon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.mage.WildMagic;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.officer.officer_ab_1;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.officer.officer_ab_2;
+import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.officer.officer_ab_3;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.rogue.DeathMark;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.rogue.ShadowClone;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.rogue.SmokeBomb;
@@ -63,6 +66,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfRage;
 import com.shatteredpixel.shatteredpixeldungeon.items.scrolls.ScrollOfUpgrade;
 import com.shatteredpixel.shatteredpixeldungeon.items.wands.WandOfMagicMissile;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.SpiritBow;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Batons;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Dagger;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Gloves;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.MagesStaff;
@@ -80,7 +84,8 @@ public enum HeroClass {
 	MAGE( HeroSubClass.BATTLEMAGE, HeroSubClass.WARLOCK ),
 	ROGUE( HeroSubClass.ASSASSIN, HeroSubClass.FREERUNNER ),
 	HUNTRESS( HeroSubClass.SNIPER, HeroSubClass.WARDEN ),
-	DUELIST( HeroSubClass.CHAMPION, HeroSubClass.MONK );
+	DUELIST( HeroSubClass.CHAMPION, HeroSubClass.MONK ),
+	OFFICER( HeroSubClass.OFFICER_A,HeroSubClass.OFFICER_B );
 
 	private HeroSubClass[] subClasses;
 
@@ -127,6 +132,10 @@ public enum HeroClass {
 			case DUELIST:
 				initDuelist( hero );
 				break;
+
+			case OFFICER:
+				initOfficer( hero );
+				break;
 		}
 
 		if (SPDSettings.quickslotWaterskin()) {
@@ -152,6 +161,8 @@ public enum HeroClass {
 				return Badges.Badge.MASTERY_HUNTRESS;
 			case DUELIST:
 				return Badges.Badge.MASTERY_DUELIST;
+			case OFFICER:
+				return Badges.Badge.MASTERY_OFFICER;
 		}
 		return null;
 	}
@@ -228,6 +239,14 @@ public enum HeroClass {
 		new ScrollOfMirrorImage().identify();
 	}
 
+	private static void initOfficer( Hero hero ) {
+
+		(hero.belongings.weapon = new Batons()).identify();
+
+		new PotionOfMindVision().identify();
+		new ScrollOfLullaby().identify();
+	}
+
 	public String title() {
 		return Messages.get(HeroClass.class, name());
 	}
@@ -256,6 +275,8 @@ public enum HeroClass {
 				return new ArmorAbility[]{new SpectralBlades(), new NaturesPower(), new SpiritHawk()};
 			case DUELIST:
 				return new ArmorAbility[]{new Challenge(), new ElementalStrike(), new Feint()};
+			case OFFICER:
+				return new ArmorAbility[]{new officer_ab_1(), new officer_ab_2(), new officer_ab_3()};
 		}
 	}
 
@@ -271,6 +292,8 @@ public enum HeroClass {
 				return Assets.Sprites.HUNTRESS;
 			case DUELIST:
 				return Assets.Sprites.DUELIST;
+			case OFFICER:
+				return Assets.Sprites.OFFICER;
 		}
 	}
 
@@ -286,25 +309,13 @@ public enum HeroClass {
 				return Assets.Splashes.HUNTRESS;
 			case DUELIST:
 				return Assets.Splashes.DUELIST;
+			case OFFICER:
+				return Assets.Splashes.OFFICER;
 		}
 	}
 	
 	public boolean isUnlocked(){
-		//always unlock on debug builds
-		if (DeviceCompat.isDebug()) return true;
-
-		switch (this){
-			case WARRIOR: default:
-				return true;
-			case MAGE:
-				return Badges.isUnlocked(Badges.Badge.UNLOCK_MAGE);
-			case ROGUE:
-				return Badges.isUnlocked(Badges.Badge.UNLOCK_ROGUE);
-			case HUNTRESS:
-				return Badges.isUnlocked(Badges.Badge.UNLOCK_HUNTRESS);
-			case DUELIST:
-				return Badges.isUnlocked(Badges.Badge.UNLOCK_DUELIST);
-		}
+		return true;
 	}
 	
 	public String unlockMsg() {

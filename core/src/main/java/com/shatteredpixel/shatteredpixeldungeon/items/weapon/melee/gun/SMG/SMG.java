@@ -20,8 +20,8 @@ public class SMG extends Gun {
     @Override
     public int max(int lvl) {
         int damage = super.max(lvl);
-        if (isEquipped(hero) && hero.hasTalent(Talent.CQC)) {
-            damage *= 1f + 0.1f*hero.pointsInTalent(Talent.CQC);
+        if (isEquipped(hero)) {
+            damage *= 1f ;
         }
         return damage;
     }
@@ -43,7 +43,7 @@ public class SMG extends Gun {
     @Override
     public int shotPerShoot() { //발사 당 탄환의 수
         int amount = shotPerShoot;
-        if (hero.heroClass == HeroClass.MIYAKO) amount ++;
+
         return amount;
     }
 
@@ -51,7 +51,7 @@ public class SMG extends Gun {
     public float reloadTime() { //재장전에 소모하는 턴
         float amount = super.reloadTime();
 
-        amount *= 1 - (0.1f*hero.pointsInTalent(Talent.SMG_FAST_RELOAD));
+        amount *= 1 ;
 
         return amount;
     }
@@ -59,9 +59,7 @@ public class SMG extends Gun {
     @Override
     public int STRReq(int lvl) {
         int req = super.STRReq(lvl);
-        if (hero.hasTalent(Talent.SMG_MASTER) && this.tier <= 1 + 2*hero.pointsInTalent(Talent.SMG_MASTER)) {
-            req--;
-        }
+
         return req;
     }
 
@@ -78,9 +76,7 @@ public class SMG extends Gun {
         @Override
         public float accuracyFactor(Char owner, Char target) {
             float ACC = super.accuracyFactor(owner, target);
-            if (hero.heroClass == HeroClass.MIYAKO) {
-                ACC *= 1.2f;
-            }
+
             return ACC;
         }
     }

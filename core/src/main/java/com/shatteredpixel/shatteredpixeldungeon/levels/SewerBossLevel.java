@@ -36,9 +36,12 @@ import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
 import com.shatteredpixel.shatteredpixeldungeon.levels.painters.SewerPainter;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.Room;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.secret.RatKingRoom;
+import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.sewerboss.GoToHodRoom;
+import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.sewerboss.GoToNetzachRoom;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.sewerboss.GooBossRoom;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.sewerboss.SewerBossEntranceRoom;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.sewerboss.SewerBossExitRoom;
+import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.BlacksmithRoom;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.StandardRoom;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.watabou.noosa.Game;
@@ -90,6 +93,8 @@ public class SewerBossLevel extends SewerLevel {
 		
 		initRooms.add( roomEntrance = new SewerBossEntranceRoom() );
 		initRooms.add( roomExit = new SewerBossExitRoom() );
+		initRooms.add( new GoToHodRoom());
+		initRooms.add( new GoToNetzachRoom());
 		
 		int standards = standardRooms(true);
 		for (int i = 0; i < standards; i++) {

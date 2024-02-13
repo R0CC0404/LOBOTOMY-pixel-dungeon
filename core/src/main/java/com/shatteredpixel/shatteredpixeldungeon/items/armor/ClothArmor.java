@@ -26,13 +26,13 @@ import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 public class ClothArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.ARMOR_CLOTH;
+		image = ItemSpriteSheet.EGO_ARMOR_BATONS;
 
 		bones = false; //Finding them in bones would be semi-frequent and disappointing.
 	}
 	
 	public ClothArmor() {
-		super( 1 );
+		super( 1 ,0);
 	}
 
 }

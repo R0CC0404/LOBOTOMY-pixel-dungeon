@@ -22,17 +22,19 @@
 package com.shatteredpixel.shatteredpixeldungeon.levels.rooms.sewerboss;
 
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
+import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.levels.Level;
 import com.shatteredpixel.shatteredpixeldungeon.levels.Terrain;
 import com.shatteredpixel.shatteredpixeldungeon.levels.features.LevelTransition;
 import com.shatteredpixel.shatteredpixeldungeon.levels.painters.Painter;
 import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.ExitRoom;
+import com.shatteredpixel.shatteredpixeldungeon.levels.rooms.standard.StandardRoom;
 import com.shatteredpixel.shatteredpixeldungeon.tiles.CustomTilemap;
 import com.watabou.noosa.Image;
 import com.watabou.noosa.Tilemap;
 import com.watabou.utils.Point;
 
-public class GoToHodRoom extends ExitRoom {
+public class GoToHodRoom extends StandardRoom {
 	
 	@Override
 	public int minWidth() {
@@ -64,7 +66,12 @@ public class GoToHodRoom extends ExitRoom {
 		exit.top--;
 		exit.left--;
 		exit.right++;
-		level.transitions.add(exit);
+		level.transitions.add(new LevelTransition(level,
+				exitCell,
+				LevelTransition.Type.BRANCH_EXIT,
+				Dungeon.depth+1,
+				Dungeon.branch+1,
+				LevelTransition.Type.BRANCH_ENTRANCE));
 		
 		CustomTilemap vis = new SewerExit();
 		vis.pos(c.x-1, c.y);
@@ -79,7 +86,7 @@ public class GoToHodRoom extends ExitRoom {
 	public static class SewerExit extends CustomTilemap {
 		
 		{
-			texture = Assets.Environment.SEWER_BOSS;
+			texture = Assets.Environment.GOTOHOD;
 			
 			tileW = 3;
 			tileH = 3;
@@ -87,7 +94,7 @@ public class GoToHodRoom extends ExitRoom {
 		
 		private static final int[] layout = new int[]{
 				21, -1, 22,
-				23, 23, 23,
+				25, 23, 25,
 				24, 24, 24
 		};
 		
@@ -110,7 +117,7 @@ public class GoToHodRoom extends ExitRoom {
 	public static class SewerExitOverhang extends CustomTilemap {
 		
 		{
-			texture = Assets.Environment.SEWER_BOSS;
+			texture = Assets.Environment.GOTOHOD;
 			
 			tileW = 3;
 			tileH = 2;

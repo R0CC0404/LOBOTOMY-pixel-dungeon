@@ -70,22 +70,16 @@ public class SG extends Gun {
     @Override
     public void execute(Hero hero, String action) {
         if (action.equals(AC_RELOAD)) {
-            if (hero.heroClass == HeroClass.HOSHINO) {
-                if (round == maxRound()+1) {
-                    GLog.w(Messages.get(Gun.class, "already_loaded"));
-                    return;
-                } else if (round == maxRound()){
-                    manualReload(1, true);
-                    hero.busy();
-                    hero.sprite.operate(hero.pos);
-                    Sample.INSTANCE.play(Assets.Sounds.UNLOCK);
-                    hero.spendAndNext(reloadTime());
-                    hero.yellP(Messages.get(Hero.class, hero.heroClass.name() + "_over_reload"));
-                    return;
-                } else {
-                    reload();
-                    return;
-                }
+            if (round == maxRound()+1) {
+                GLog.w(Messages.get(Gun.class, "already_loaded"));
+                return;
+            } else if (round == maxRound()){
+                manualReload(1, true);
+                hero.busy();
+                hero.sprite.operate(hero.pos);
+                Sample.INSTANCE.play(Assets.Sounds.UNLOCK);
+                hero.spendAndNext(reloadTime());
+                return;
             } else {
                 reload();
                 return;
@@ -96,11 +90,7 @@ public class SG extends Gun {
             hero.busy();
             hero.sprite.operate(hero.pos);
             Sample.INSTANCE.play(Assets.Sounds.UNLOCK);
-            if (throwAway) {
-                hero.yellP(Messages.get(Hero.class, hero.heroClass.name() + "_throw_away_on"));
-            } else {
-                hero.yellP(Messages.get(Hero.class, hero.heroClass.name() + "_throw_away_off"));
-            }
+
         }
         super.execute(hero, action);
     }
@@ -115,16 +105,14 @@ public class SG extends Gun {
     @Override
     public int STRReq(int lvl) {
         int req = super.STRReq(lvl);
-        if (hero.hasTalent(Talent.SG_MASTER) && this.tier <= 1 + 2*hero.pointsInTalent(Talent.SG_MASTER)) {
-            req--;
-        }
+       
         return req;
     }
 
     @Override
     public int shotPerShoot() { //발사 당 탄환의 수
         int amount = shotPerShoot;
-        if (hero.hasTalent(Talent.ADDITIONAL_SHOT)) amount += hero.pointsInTalent(Talent.ADDITIONAL_SHOT);
+
         return amount;
     }
 
@@ -132,7 +120,7 @@ public class SG extends Gun {
     public float reloadTime() { //재장전에 소모하는 턴
         float amount = super.reloadTime();
 
-        amount *= 1 - (0.1f*hero.pointsInTalent(Talent.SG_FAST_RELOAD));
+        amount *=1;
 
         return amount;
     }
@@ -149,20 +137,13 @@ public class SG extends Gun {
 
         @Override
         public void cast(final Hero user, final int dst) {
-            if (hero.subClass == HeroSubClass.HOSHINO_EX_TACTICAL_PRESS) {
-                int cell = throwPos( user, dst );
-                tacticalPress(cell);
-            } else {
-                super.cast(user, dst);
-            }
+            super.cast(user, dst);
         }
 
         @Override
         public int proc(Char attacker, Char defender, int damage) {
-            if (hero.hasTalent(Talent.TACTICAL_SHIELD_1)) {
-                if (Random.Float() < 0.03f * hero.pointsInTalent(Talent.TACTICAL_SHIELD_1)) {
-                    Buff.prolong(defender, Paralysis.class, 2);
-                }
+            if (Random.Float() < 0.03f ) {
+                Buff.prolong(defender, Paralysis.class, 2);
             }
 
             return super.proc(attacker, defender, damage);
@@ -172,7 +153,6 @@ public class SG extends Gun {
             Ballistica aim = new Ballistica(hero.pos, cell, Ballistica.STOP_SOLID);
 
             int maxDist = 2;
-            if (Random.Int(3) < hero.pointsInTalent(Talent.TACTICAL_PRESS_1)) maxDist++;
             int dist = Math.min(aim.dist, maxDist);
 
             ArrayList<Char> affected = new ArrayList<>();
@@ -185,9 +165,6 @@ public class SG extends Gun {
                         affected.add(ch);
                     }
                 }
-            } else {
-                hero.yellW(Messages.get(Hero.class, hero.heroClass.name() + "_cannot_self"));
-                return;
             }
             Invisibility.dispel();
             hero.sprite.zap(cell);
@@ -197,19 +174,19 @@ public class SG extends Gun {
                 int hit = 0;
                 for (int i=0; i<shotPerShoot(); i++) {
                     if (curUser.shoot(ch, SGBullet.this, multi, 0, multi)) {
-                        if (hero.hasTalent(Talent.TACTICAL_PRESS_2) && Random.Float() < 0.1f) {
-                            Buff.prolong(ch, Daze.class, 2*hero.pointsInTalent(Talent.TACTICAL_PRESS_2));
+                        if (Random.Float() < 0.1f) {
+                            Buff.prolong(ch, Daze.class, 2);
                         }
                         hit ++;
                     }
                 }
 
-                if (hero.hasTalent(Talent.TACTICAL_PRESS_3) && throwAway ) {
+                if ( throwAway ) {
                     Ballistica trajectory = new Ballistica(hero.pos, ch.pos, Ballistica.STOP_TARGET);
                     trajectory = new Ballistica(trajectory.collisionPos, trajectory.path.get(trajectory.path.size()-1), Ballistica.PROJECTILE);
                     WandOfBlastWave.throwChar(ch,
                             trajectory,
-                            hit*hero.pointsInTalent(Talent.TACTICAL_PRESS_3),
+                            hit,
                             false,
                             true,
                             SGBullet.this);

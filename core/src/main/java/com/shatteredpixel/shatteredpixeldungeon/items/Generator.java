@@ -24,14 +24,22 @@ package com.shatteredpixel.shatteredpixeldungeon.items;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.Armor;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.ClothArmor;
+import com.shatteredpixel.shatteredpixeldungeon.items.armor.DacapoArmor;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.DuelistArmor;
+import com.shatteredpixel.shatteredpixeldungeon.items.armor.GoldRushArmor;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.HuntressArmor;
+import com.shatteredpixel.shatteredpixeldungeon.items.armor.JustitiaArmor;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.LeatherArmor;
+import com.shatteredpixel.shatteredpixeldungeon.items.armor.LostParadiseArmor;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.MageArmor;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.MailArmor;
+import com.shatteredpixel.shatteredpixeldungeon.items.armor.MimicryArmor;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.PlateArmor;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.RogueArmor;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.ScaleArmor;
+import com.shatteredpixel.shatteredpixeldungeon.items.armor.SmileArmor;
+import com.shatteredpixel.shatteredpixeldungeon.items.armor.SoundofStarArmor;
+import com.shatteredpixel.shatteredpixeldungeon.items.armor.TwilightArmor;
 import com.shatteredpixel.shatteredpixeldungeon.items.armor.WarriorArmor;
 import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.AlchemistsToolkit;
 import com.shatteredpixel.shatteredpixeldungeon.items.artifacts.Artifact;
@@ -117,21 +125,25 @@ import com.shatteredpixel.shatteredpixeldungeon.items.wands.WandOfWarding;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.AssassinsBlade;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.BattleAxe;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Crossbow;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Dacapo;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Dagger;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Dirk;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Flail;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Gauntlet;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Glaive;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Gloves;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Goldrush;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Greataxe;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Greatshield;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Greatsword;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.HandAxe;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Justitia;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Katana;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Longsword;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Mace;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.MagesStaff;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.MeleeWeapon;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Mimicry;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Quarterstaff;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Rapier;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.RoundShield;
@@ -140,6 +152,8 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Sai;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Scimitar;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Shortsword;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Sickle;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Smile;
+import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Soundofstar;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Spear;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.Sword;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.WarHammer;
@@ -186,12 +200,12 @@ import java.util.LinkedHashMap;
 public class Generator {
 
 	public enum Category {
-		WEAPON	( 2, 2, MeleeWeapon.class),
+		WEAPON	( 50, 50, MeleeWeapon.class),
 		WEP_T1	( 0, 0, MeleeWeapon.class),
 		WEP_T2	( 0, 0, MeleeWeapon.class),
 		WEP_T3	( 0, 0, MeleeWeapon.class),
 		WEP_T4	( 0, 0, MeleeWeapon.class),
-		WEP_T5	( 0, 0, MeleeWeapon.class),
+		WEP_T5	( 50, 50, MeleeWeapon.class),
 		
 		ARMOR	( 2, 1, Armor.class ),
 		
@@ -396,9 +410,15 @@ public class Generator {
 					Greataxe.class,
 					Greatshield.class,
 					Gauntlet.class,
-					WarScythe.class
+					WarScythe.class,
+					Mimicry.class,
+					Dacapo.class,
+					Justitia.class,
+					Soundofstar.class,
+					Smile.class,
+					Goldrush.class
 			};
-			WEP_T5.defaultProbs = new float[]{ 2, 2, 2, 2, 2, 2, 2 };
+			WEP_T5.defaultProbs = new float[]{ 2, 2, 2, 2, 2, 2, 2, 50, 50, 50, 50, 50, 50 };
 			WEP_T5.probs = WEP_T5.defaultProbs.clone();
 			
 			//see Generator.randomArmor
@@ -412,9 +432,17 @@ public class Generator {
 					MageArmor.class,
 					RogueArmor.class,
 					HuntressArmor.class,
-					DuelistArmor.class
+					DuelistArmor.class,
+					MimicryArmor.class,
+					DacapoArmor.class,
+					TwilightArmor.class,
+					JustitiaArmor.class,
+					SoundofStarArmor.class,
+					SmileArmor.class,
+					LostParadiseArmor.class,
+					GoldRushArmor.class
 			};
-			ARMOR.probs = new float[]{ 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 };
+			ARMOR.probs = new float[]{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 50, 50, 50, 50, 50, 50, 50 };
 			
 			//see Generator.randomMissile
 			MISSILE.classes = new Class<?>[]{};

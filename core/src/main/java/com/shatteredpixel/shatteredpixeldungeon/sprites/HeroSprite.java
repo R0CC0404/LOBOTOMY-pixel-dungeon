@@ -43,7 +43,7 @@ public class HeroSprite extends CharSprite {
 	
 	private static final int RUN_FRAMERATE	= 20;
 	
-	private static TextureFilm tiers;
+	private static TextureFilm nums;
 	
 	private Animation fly;
 	private Animation read;
@@ -64,7 +64,7 @@ public class HeroSprite extends CharSprite {
 	
 	public void updateArmor() {
 
-		TextureFilm film = new TextureFilm( tiers(), Dungeon.hero.tier(), FRAME_WIDTH, FRAME_HEIGHT );
+		TextureFilm film = new TextureFilm( nums(), Dungeon.hero.num(), FRAME_WIDTH, FRAME_HEIGHT );
 		
 		idle = new Animation( 1, true );
 		idle.frames( film, 0, 0, 0, 1, 0, 0, 1, 1 );
@@ -158,21 +158,21 @@ public class HeroSprite extends CharSprite {
 		run.delay = 1f / speed / RUN_FRAMERATE;
 	}
 	
-	public static TextureFilm tiers() {
-		if (tiers == null) {
-			SmartTexture texture = TextureCache.get( Assets.Sprites.ROGUE );
-			tiers = new TextureFilm( texture, texture.width, FRAME_HEIGHT );
+	public static TextureFilm nums() {
+		if (nums == null) {
+			SmartTexture texture = TextureCache.get( Assets.Sprites.OFFICER );
+			nums = new TextureFilm( texture, texture.width, FRAME_HEIGHT );
 		}
 		
-		return tiers;
+		return nums;
 	}
 	
-	public static Image avatar( HeroClass cl, int armorTier ) {
+	public static Image avatar( HeroClass cl, int armorNum ) {
 		
-		RectF patch = tiers().get( armorTier );
+		RectF patch = nums().get( armorNum );
 		Image avatar = new Image( cl.spritesheet() );
 		RectF frame = avatar.texture.uvRect( 1, 0, FRAME_WIDTH, FRAME_HEIGHT );
-		frame.shift( patch.left, patch.top );
+		frame.shift( patch.left , patch.top );
 		avatar.frame( frame );
 		
 		return avatar;

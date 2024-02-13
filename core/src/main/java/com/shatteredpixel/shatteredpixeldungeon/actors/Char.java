@@ -40,6 +40,7 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.ChampionEnemy;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Charm;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Chill;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Corrosion;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Corruption;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Cripple;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Daze;
 import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Doom;
@@ -76,9 +77,11 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.duelist.Ch
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.rogue.DeathMark;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.abilities.warrior.Endure;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Elemental;
+import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Tengu;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs.MirrorImage;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.npcs.PrismaticImage;
+import com.shatteredpixel.shatteredpixeldungeon.effects.Speck;
 import com.shatteredpixel.shatteredpixeldungeon.effects.particles.ShadowParticle;
 import com.shatteredpixel.shatteredpixeldungeon.items.Heap;
 import com.shatteredpixel.shatteredpixeldungeon.items.Item;
@@ -1128,4 +1131,38 @@ public abstract class Char extends Actor {
 	public static boolean hasProp( Char ch, Property p){
 		return (ch != null && ch.properties().contains(p));
 	}
+
+	public void heal(int amount)
+	{
+		amount = Math.min( amount, this.HT - this.HP );
+		if ( amount > 0 && this.isAlive())
+		{
+			this.HP += amount;
+			this.sprite.emitter().start( Speck.factory(Speck.HEALING), 0.4f, 1 );
+			this.sprite.showStatus(CharSprite.POSITIVE, Integer.toString( amount) );
+		}
+	}
+
+	public int corrupt(Char attacker, int tier, int damage)
+	{
+		float corruptChance = 0.2f * tier;
+
+		if (!this.isImmune(Corruption.class)
+				&& Random.Float() <= corruptChance
+				&& this.buff(Corruption.class) == null
+				&& this instanceof Mob
+				&& this.isAlive())
+		{
+			Mob enemy = (Mob) this;
+			Hero hero = (attacker instanceof Hero) ? (Hero) attacker : Dungeon.hero;
+
+			Corruption.corruptionHeal(enemy);
+
+			AllyBuff.affectAndLoot(enemy, hero, Corruption.class);
+
+			return 0;
+		}
+		return damage;
+	}
+
 }

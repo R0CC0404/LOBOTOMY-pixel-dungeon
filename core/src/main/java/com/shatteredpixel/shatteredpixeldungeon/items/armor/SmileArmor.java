@@ -23,14 +23,14 @@ package com.shatteredpixel.shatteredpixeldungeon.items.armor;
 
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 
-public class SoundofStarArmor extends Armor {
+public class SmileArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.EGO_ARMOR_BLUE_STAR;
+		image = ItemSpriteSheet.EGO_ARMOR_SMILE;
 	}
 
-	public SoundofStarArmor() {
-		super( 5,5 );
+	public SmileArmor() {
+		super( 5,6 );
 	}
 
 }

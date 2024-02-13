@@ -27,14 +27,15 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 
-public class Greatsword extends MeleeWeapon {
+public class Justitia extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.GREATSWORD;
+		image = ItemSpriteSheet.EGO_WEB_JUSTITIA;
 		hitSound = Assets.Sounds.HIT_SLASH;
 		hitSoundPitch = 1f;
 
 		tier = 5;
+		grade = "Aleph";
 	}
 
 	@Override
@@ -44,6 +45,11 @@ public class Greatsword extends MeleeWeapon {
 		} else {
 			return 1;
 		}
+	}
+
+	@Override
+	public int STRReq(int lvl) {
+		return STRReq(tier-4, lvl); //20 base strength req, up from 18
 	}
 
 	@Override

@@ -23,14 +23,14 @@ package com.shatteredpixel.shatteredpixeldungeon.items.armor;
 
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 
-public class MimicryArmor extends Armor {
+public class DacapoArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.EGO_ARMOR_MIMICRY;
+		image = ItemSpriteSheet.EGO_ARMOR_DA_CAPO;
 	}
 
-	public MimicryArmor() {
-		super( 5,1 );
+	public DacapoArmor() {
+		super( 5,2 );
 	}
 
 }

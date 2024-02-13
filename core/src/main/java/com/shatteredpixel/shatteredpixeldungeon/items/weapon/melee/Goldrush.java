@@ -26,21 +26,33 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 
-public class Gauntlet extends MeleeWeapon {
+public class Goldrush extends MeleeWeapon {
 	
 	{
-		image = ItemSpriteSheet.GAUNTLETS;
+		image = ItemSpriteSheet.EGO_WEB_GOLD_RUSH;
 		hitSound = Assets.Sounds.HIT_CRUSH;
 		hitSoundPitch = 1.2f;
 		
 		tier = 5;
+		grade = "Aleph";
+
 		DLY = 0.5f; //2x speed
 	}
-	
+
+	@Override
+	public int min(int lvl) {
+		return  9*(tier+4) + //base
+				lvl*(tier+1);    //level scaling
+	}
 	@Override
 	public int max(int lvl) {
-		return  Math.round(2.5f*(tier+1)) +     //15 base, down from 30
-				lvl*Math.round(0.5f*(tier+1));  //+3 per level, down from +6
+		return  25*(tier+4) +    //45 base, up from 30
+				lvl*(tier+1);   //scaling unchanged
+	}
+
+	@Override
+	public int STRReq(int lvl) {
+		return STRReq(tier-4, lvl); //20 base strength req, up from 18
 	}
 
 	@Override

@@ -23,14 +23,14 @@ package com.shatteredpixel.shatteredpixeldungeon.items.armor;
 
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 
-public class SmileArmor extends Armor {
+public class LostParadiseArmor extends Armor {
 
 	{
-		image = ItemSpriteSheet.EGO_ARMOR_SMILE;
+		image = ItemSpriteSheet.EGO_ARMOR_PARADISE_LOST;
 	}
 
-	public SmileArmor() {
-		super( 5,6 );
+	public LostParadiseArmor() {
+		super( 5,7 );
 	}
 
 }

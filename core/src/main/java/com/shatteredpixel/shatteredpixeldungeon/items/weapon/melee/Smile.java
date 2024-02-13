@@ -28,15 +28,29 @@ import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
 import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 
-public class WarHammer extends MeleeWeapon {
+public class Smile extends MeleeWeapon {
 
 	{
-		image = ItemSpriteSheet.WAR_HAMMER;
-		hitSound = Assets.Sounds.HIT_CRUSH;
+		image = ItemSpriteSheet.EGO_WEB_SMILE;
+		hitSound = Assets.Sounds.HIT_STRONG;
 		hitSoundPitch = 1f;
 
 		tier = 5;
+		grade = "Aleph";
+
 		ACC = 1.20f; //20% boost to accuracy
+	}
+
+	@Override
+	public int proc( Char attacker, Char defender, int damage)
+	{
+		attacker.heal( 25 );
+		return super.proc( attacker, defender, damage );
+	}
+
+	@Override
+	public int STRReq(int lvl) {
+		return STRReq(tier-4, lvl); //20 base strength req, up from 18
 	}
 
 	@Override

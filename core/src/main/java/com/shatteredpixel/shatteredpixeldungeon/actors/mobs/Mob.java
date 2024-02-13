@@ -664,6 +664,7 @@ public abstract class Mob extends Char {
 				&& ((Hero) enemy).belongings.attackingWeapon() instanceof MissileWeapon){
 			Statistics.thrownAttacks++;
 			Badges.validateHuntressUnlock();
+			Badges.validateOfficerUnlock();
 		}
 		
 		if (surprisedBy(enemy)) {
