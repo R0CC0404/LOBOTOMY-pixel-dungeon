@@ -910,7 +910,7 @@ public class ItemSpriteSheet {
 		assignItemRect( EGO_WEB_MIMICRY	,     	16, 16 );
 		assignItemRect( EGO_WEB_DA_CAPO	,   	14, 16 );
 		assignItemRect( EGO_WEB_JUSTITIA,   	16, 16 );
-		assignItemRect( EGO_WEB_SMILE,  	14, 14 );
+		assignItemRect( EGO_WEB_BLUE_STAR,  	14, 14 );
 		assignItemRect( EGO_WEB_SMILE	,  	 	16, 16 );
 		assignItemRect( EGO_WEB_GOLD_RUSH,  	16, 15 );
 		assignItemRect( EGO_WEB_CENSORED,  		16, 12 );
@@ -1014,7 +1014,7 @@ public class ItemSpriteSheet {
 		assignItemRect( EGO_WEB_IMPENDING_DAY	,15, 15 );
 		assignItemRect( EGO_WEB_4TH_FLAME		,14, 14 );
 		assignItemRect( EGO_WEB_FRAGMENTS		,15, 15 );
-		assignItemRect( EGO_WEB_BEAK			,13, 13 );
+		assignItemRect( EGO_WEB_BEAK			,13, 16 );
 		assignItemRect( EGO_WEB_WRIST_CUTTER	,15, 15 );
 		assignItemRect( EGO_WEB_ROSEATE_DESIRE	,10, 11 );
 		assignItemRect( EGO_WEB_SCREWLOOSE		,14, 14 );
@@ -1023,11 +1023,17 @@ public class ItemSpriteSheet {
 	private static final int EGO_WEB_Z =                            xy(1, 39);  //16 slots
 	public static final int EGO_WEB_BATONS			= EGO_WEB_Z+0;
 	public static final int EGO_WEB_PENITENCE		= EGO_WEB_Z+1;
+	public static final int EGO_WEB_WINGBEAT		= EGO_WEB_Z+2;
+	public static final int EGO_WEB_SODA			= EGO_WEB_Z+3;
+	public static final int EGO_WEB_TOUGH			= EGO_WEB_Z+4;
 
 
 	static {
 		assignItemRect( EGO_WEB_BATONS			,15, 15 );
 		assignItemRect( EGO_WEB_PENITENCE		,12, 12 );
+		assignItemRect( EGO_WEB_WINGBEAT		,11, 13 );
+		assignItemRect( EGO_WEB_SODA			,13, 16 );
+		assignItemRect( EGO_WEB_TOUGH			,13, 16 );
 	}
 
 	private static final int EGO_ARMOR_A =                            xy(1, 41);  //16 slots
@@ -1142,11 +1148,17 @@ public class ItemSpriteSheet {
 	private static final int EGO_ARMOR_Z =                            xy(1, 45);  //16 slots
 	public static final int EGO_ARMOR_BATONS		= EGO_ARMOR_Z+0;
 	public static final int EGO_ARMOR_PENITENCE		= EGO_ARMOR_Z+1;
+	public static final int EGO_ARMOR_SODA			= EGO_ARMOR_Z+2;
+	public static final int EGO_ARMOR_WINGBEAT		= EGO_ARMOR_Z+3;
+	public static final int EGO_ARMOR_TOUGH			= EGO_ARMOR_Z+4;
 
 
 	static {
 		assignItemRect( EGO_ARMOR_BATONS			,10, 11 );
-		assignItemRect( EGO_ARMOR_PENITENCE		,10, 11 );
+		assignItemRect( EGO_ARMOR_PENITENCE			,10, 11 );
+		assignItemRect( EGO_ARMOR_SODA				,10, 11 );
+		assignItemRect( EGO_ARMOR_WINGBEAT			,10, 11 );
+		assignItemRect( EGO_ARMOR_TOUGH				,10, 10 );
 	}
 
 	private static final int BULLET  =                                   xy(1, 47);  //16 slots

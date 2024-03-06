@@ -2,19 +2,19 @@ package com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee;
 
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
-import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 
-public class Batons extends MeleeWeapon {
+public class Pleasure extends MeleeWeapon {
 
     {
-        image = ItemSpriteSheet.EGO_WEB_BATONS;
+        image = ItemSpriteSheet.EGO_WEB_PLEASURE;
         hitSound = Assets.Sounds.HIT_CRUSH;
         hitSoundPitch = 1.1f;
 
-        tier = 1;
-        grade = "Zayin";
+        tier = 3;
+        grade = "He";
+        DLY = 1.5f; //0.67x speed
+        RCH = 2;    //extra reach
 
         bones = false;
     }
@@ -37,5 +37,7 @@ public class Batons extends MeleeWeapon {
         return  25*(tier+4) +    //45 base, up from 30
                 lvl*(tier+1);   //scaling unchanged
     }
+
+
 
 }

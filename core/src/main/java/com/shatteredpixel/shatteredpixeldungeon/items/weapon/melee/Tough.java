@@ -1,22 +1,22 @@
-package com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.gun.HG;
+package com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee;
 
 import static com.shatteredpixel.shatteredpixeldungeon.Dungeon.hero;
 
-import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.HeroClass;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
-import com.shatteredpixel.shatteredpixeldungeon.items.KindOfWeapon;
 import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfSharpshooting;
-import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.MeleeWeapon;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.gun.Gun;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
-public class HG extends Gun {
+
+public class Tough extends Gun {
 //권총
     {
         max_round = 4;
         round = max_round;
         shootingSpeed = 0.5f;
+        image = ItemSpriteSheet.EGO_WEB_TOUGH;
+
+        tier = 1;
+        grade = "Zayin";
     }
 
     @Override

@@ -112,7 +112,7 @@ public class ArmoredStatue extends Statue {
 	@Override
 	public CharSprite sprite() {
 		CharSprite sprite = super.sprite();
-		((StatueSprite)sprite).setArmor(armor.tier);
+		((StatueSprite)sprite).setArmor(armor.num);
 		return sprite;
 	}
 

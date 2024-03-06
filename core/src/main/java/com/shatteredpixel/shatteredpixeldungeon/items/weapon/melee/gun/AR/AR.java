@@ -24,7 +24,7 @@ import com.watabou.utils.Random;
 
 import java.util.ArrayList;
 public class AR extends Gun {
-
+//돌격소총
     {
         max_round = 4;
         round = max_round;

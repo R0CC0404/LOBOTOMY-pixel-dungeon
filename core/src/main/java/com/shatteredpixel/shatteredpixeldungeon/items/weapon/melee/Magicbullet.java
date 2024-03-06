@@ -1,20 +1,24 @@
-package com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.gun.SR;
+package com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee;
 import static com.shatteredpixel.shatteredpixeldungeon.Dungeon.hero;
 
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
 import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Talent;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Mob;
 import com.shatteredpixel.shatteredpixeldungeon.items.rings.RingOfSharpshooting;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.gun.Gun;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 import com.watabou.utils.Random;
-public class SR extends Gun {
+
+public class Magicbullet extends Gun {
 //저격소총
     {
         max_round = 1;
         round = max_round;
         shootingAccuracy = 2f;
+
+        image = ItemSpriteSheet.EGO_WEB_MAGIC_BULLET;
+        tier = 4;
+        grade = "Waw";
     }
 
     @Override

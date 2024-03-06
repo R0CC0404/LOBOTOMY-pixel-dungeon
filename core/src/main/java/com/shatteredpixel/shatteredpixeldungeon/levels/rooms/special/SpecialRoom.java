@@ -82,7 +82,10 @@ public abstract class SpecialRoom extends Room {
 	//9 special rooms which give equipment more often than consumables (or as often as)
 	private static final ArrayList<Class<? extends SpecialRoom>> EQUIP_SPECIALS = new ArrayList<>( Arrays.asList(
 			WeakFloorRoom.class, CryptRoom.class, PoolRoom.class, ArmoryRoom.class, SentryRoom.class,
-			StatueRoom.class, CrystalVaultRoom.class, CrystalChoiceRoom.class, SacrificeRoom.class
+			StatueRoom.class, StatueRoom.class, StatueRoom.class, StatueRoom.class, StatueRoom.class,
+			StatueRoom.class, StatueRoom.class, StatueRoom.class, StatueRoom.class, StatueRoom.class,
+			StatueRoom.class, StatueRoom.class, StatueRoom.class, StatueRoom.class, StatueRoom.class,
+			CrystalVaultRoom.class, CrystalChoiceRoom.class, SacrificeRoom.class
 	));
 
 	//10 special rooms which give consumables more often than equipment

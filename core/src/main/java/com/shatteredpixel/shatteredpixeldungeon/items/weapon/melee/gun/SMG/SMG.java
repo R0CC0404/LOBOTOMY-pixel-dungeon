@@ -9,7 +9,7 @@ import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.gun.Gun;
 import com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee.gun.SG.SG;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 public class SMG extends Gun {
-
+//기관단총
     {
         max_round = 2;
         round = max_round;

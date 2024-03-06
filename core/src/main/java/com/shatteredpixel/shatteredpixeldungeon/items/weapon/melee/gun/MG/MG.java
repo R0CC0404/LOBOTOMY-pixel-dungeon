@@ -27,7 +27,7 @@ import com.watabou.utils.Random;
 
 import java.util.ArrayList;
 public class MG extends Gun {
-
+//기관총
     private boolean riot = false;
     private boolean shootAll = false;
 

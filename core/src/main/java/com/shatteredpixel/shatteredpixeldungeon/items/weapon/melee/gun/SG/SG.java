@@ -32,6 +32,7 @@ import java.util.ArrayList;
 public class SG extends Gun {
     //근접 이외에 탄환이 맞지 않음. Hero.attackSkill()참고
     //탄환 기습 불가. Hero.canSurpriseAttack()참고
+    //산탄총
     private boolean throwAway = false;
 
     {

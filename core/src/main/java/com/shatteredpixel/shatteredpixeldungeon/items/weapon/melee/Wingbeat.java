@@ -2,14 +2,12 @@ package com.shatteredpixel.shatteredpixeldungeon.items.weapon.melee;
 
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
-import com.shatteredpixel.shatteredpixeldungeon.actors.hero.Hero;
-import com.shatteredpixel.shatteredpixeldungeon.messages.Messages;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.ItemSpriteSheet;
 
-public class Batons extends MeleeWeapon {
+public class Wingbeat extends MeleeWeapon {
 
     {
-        image = ItemSpriteSheet.EGO_WEB_BATONS;
+        image = ItemSpriteSheet.EGO_WEB_WINGBEAT;
         hitSound = Assets.Sounds.HIT_CRUSH;
         hitSoundPitch = 1.1f;
 

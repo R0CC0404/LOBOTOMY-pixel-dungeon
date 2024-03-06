@@ -22,6 +22,8 @@
 package com.shatteredpixel.shatteredpixeldungeon.levels.rooms.special;
 
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Buff;
+import com.shatteredpixel.shatteredpixeldungeon.actors.buffs.Panic;
 import com.shatteredpixel.shatteredpixeldungeon.actors.mobs.Statue;
 import com.shatteredpixel.shatteredpixeldungeon.items.keys.IronKey;
 import com.shatteredpixel.shatteredpixeldungeon.levels.Level;
@@ -70,5 +72,6 @@ public class StatueRoom extends SpecialRoom {
 		Statue statue = Statue.random();
 		statue.pos = cx + cy * level.width();
 		level.mobs.add( statue );
+		Buff.affect(statue, Panic.class );
 	}
 }
