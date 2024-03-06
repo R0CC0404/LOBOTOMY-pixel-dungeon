@@ -23,6 +23,9 @@ package com.shatteredpixel.shatteredpixeldungeon.sprites;
 
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
+import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.effects.TorchHalo;
+import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.watabou.gltextures.SmartTexture;
 import com.watabou.gltextures.TextureCache;
 import com.watabou.noosa.TextureFilm;
@@ -31,7 +34,7 @@ import com.watabou.utils.GameMath;
 
 public class StatueSprite extends MobSprite {
 
-
+	private TorchHalo light;
 
 	private static TextureFilm nums;
 
@@ -82,7 +85,16 @@ public class StatueSprite extends MobSprite {
 
 	}
 
+	@Override
+	public void link(Char ch) {
+		super.link(ch);
+		light = new TorchHalo( this );
+		light.hardlight(blood() & 0x00FFFFFF);
+		light.alpha(0.3f);
+		light.radius(10);
 
+		GameScene.effect(light);
+	}
 
 	@Override
 	public int blood() {

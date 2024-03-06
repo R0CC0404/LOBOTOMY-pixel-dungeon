@@ -72,6 +72,6 @@ public class StatueRoom extends SpecialRoom {
 		Statue statue = Statue.random();
 		statue.pos = cx + cy * level.width();
 		level.mobs.add( statue );
-		Buff.affect(statue, Panic.class );
+//		Buff.affect(statue, Panic.class );
 	}
 }
