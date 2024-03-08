@@ -57,6 +57,10 @@ public class ArmoredStatue extends Statue {
 
 	private static final String ARMOR	= "armor";
 
+	@Override
+	public String name() {
+		return Messages.get(this, "name", armor.tier);
+	}
 
 	@Override
 	public void storeInBundle( Bundle bundle ) {
