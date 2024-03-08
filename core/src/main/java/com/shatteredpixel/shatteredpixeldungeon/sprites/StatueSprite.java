@@ -24,6 +24,7 @@ package com.shatteredpixel.shatteredpixeldungeon.sprites;
 import com.shatteredpixel.shatteredpixeldungeon.Assets;
 import com.shatteredpixel.shatteredpixeldungeon.Dungeon;
 import com.shatteredpixel.shatteredpixeldungeon.actors.Char;
+import com.shatteredpixel.shatteredpixeldungeon.effects.ShieldHalo;
 import com.shatteredpixel.shatteredpixeldungeon.effects.TorchHalo;
 import com.shatteredpixel.shatteredpixeldungeon.scenes.GameScene;
 import com.watabou.gltextures.SmartTexture;
@@ -34,7 +35,7 @@ import com.watabou.utils.GameMath;
 
 public class StatueSprite extends MobSprite {
 
-	private TorchHalo light;
+//	private ShieldHalo shield;
 
 	private static TextureFilm nums;
 
@@ -72,29 +73,29 @@ public class StatueSprite extends MobSprite {
 	private static int[] tierFrames = {0, 21, 32, 43, 54, 65};
 
 	public void setArmor( int num ){
-		int c = tierFrames[(int)GameMath.gate(0, num, 5)];
+		int c = num*21;
 
 		TextureFilm frames = new TextureFilm( texture, 12, 15 );
 
 		idle.frames( frames, 0+c, 0+c, 0+c, 1+c, 0+c, 0+c, 1+c, 1+c );
 		run.frames( frames, 2+c, 3+c, 4+c, 5+c, 6+c, 7+c );
-		attack.frames( frames, 8+c, 9+c, 10+c );
+		attack.frames( frames, 13+c, 14+c, 15+c, 0+c );
 		//death animation is always armorless
 
 		play( idle, true );
 
 	}
 
-	@Override
-	public void link(Char ch) {
-		super.link(ch);
-		light = new TorchHalo( this );
-		light.hardlight(blood() & 0x00FFFFFF);
-		light.alpha(0.3f);
-		light.radius(10);
-
-		GameScene.effect(light);
-	}
+//	@Override
+//	public void link(Char ch) {
+//		super.link(ch);
+//		shield = new ShieldHalo( this );
+//		shield.hardlight(0x2e0050 & 0x320081);
+//		shield.alpha(5f);
+//		shield.radius(10);
+//
+//		GameScene.effect(shield);
+//	}
 
 	@Override
 	public int blood() {

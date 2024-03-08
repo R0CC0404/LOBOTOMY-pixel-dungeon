@@ -21,6 +21,14 @@
 
 package com.shatteredpixel.shatteredpixeldungeon.actors.buffs;
 
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.BlastParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.BloodParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.ChallengeParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.ElmoParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.EnergyParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.FlameParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.PanicParticle;
+import com.shatteredpixel.shatteredpixeldungeon.effects.particles.ShadowParticle;
 import com.shatteredpixel.shatteredpixeldungeon.sprites.CharSprite;
 import com.shatteredpixel.shatteredpixeldungeon.ui.BuffIndicator;
 import com.watabou.noosa.Image;
@@ -45,10 +53,9 @@ public class Panic extends Buff {
 
 	@Override
 	public void fx(boolean on) {
-		if (on) {target.sprite.aura( color );
-		target.sprite.add( CharSprite.State.DARKENED );}
-		else {target.sprite.clearAura();
-			target.sprite.remove( CharSprite.State.DARKENED );}
+		if (on) {target.sprite.emitter().start(PanicParticle.FACTORY, 0.2f, 0);
+		}
+		else if (target.invisible == 0) target.sprite.remove();
 	}
 
 

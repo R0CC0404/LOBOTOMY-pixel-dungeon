@@ -57,6 +57,7 @@ public class ArmoredStatue extends Statue {
 
 	private static final String ARMOR	= "armor";
 
+
 	@Override
 	public void storeInBundle( Bundle bundle ) {
 		super.storeInBundle( bundle );
